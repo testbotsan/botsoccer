@@ -69,7 +69,7 @@ public class EchoApplication {
     }
 
         //return new TextMessage(originalMessageText + "wwww");
-    }
+    
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
