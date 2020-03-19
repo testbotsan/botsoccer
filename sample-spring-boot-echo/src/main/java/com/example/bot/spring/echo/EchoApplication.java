@@ -42,7 +42,33 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        return new TextMessage(originalMessageText + "wwww");
+
+        String m_str = content.getText();
+
+        switch (m_str) {
+            case "はい": {
+                this.reply(replyToken,
+                        new TextMessage("さっすがー！")
+                );
+                break;
+            }
+            case "いいえ": {
+                this.reply(replyToken,
+                        new TextMessage("捨てにいきましょー！")
+                );
+                break;
+            }
+            default:
+                log.info("Returns echo message {}: {}", replyToken, text);
+                this.replyText(
+                        replyToken,
+                        text
+                );
+                break;
+        }
+    }
+
+        //return new TextMessage(originalMessageText + "wwww");
     }
 
     @EventMapping
