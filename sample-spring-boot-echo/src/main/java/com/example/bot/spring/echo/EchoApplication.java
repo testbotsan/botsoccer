@@ -44,32 +44,25 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
 
         String m_str = content.getText();
+        String www;
 
         switch (m_str) {
-            case "はい": {
-                this.reply(replyToken,
-                        new TextMessage("さっすがー！")
-                );
+            case "はい": 
+                www = "yes";
                 break;
-            }
-            case "いいえ": {
-                this.reply(replyToken,
-                        new TextMessage("捨てにいきましょー！")
-                );
+            
+            case "いいえ": 
+                www = "no";
                 break;
-            }
+            
             default:
-                log.info("Returns echo message {}: {}", replyToken, text);
-                this.replyText(
-                        replyToken,
-                        text
-                );
+               www = "uuu";
                 break;
         }
+        return new TextMessage(originalMessageText + www);
     }
 
-        //return new TextMessage(originalMessageText + "wwww");
-    
+       
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
