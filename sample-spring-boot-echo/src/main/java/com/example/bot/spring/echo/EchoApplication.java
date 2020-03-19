@@ -48,26 +48,22 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
 
         
-        //String www;
+        String www;
 
-        switch (originalMessageText) {
+        switch (event.getMessage().getText()) {
             case "はい": 
             {
-                this.replyText(replyToken, "かきくけこ");
+                www = "はい";
                 break;
             }
-            case "いいえ": 
-            {
-                this.replyText(replyToken, "かきくけこ");
-                break;
-            }
+           
             default:
             {
-                this.replyText(replyToken, "かきくけこ");
+                www = "いいえ";
                 break;
             }  
         }
-       
+        return new TextMessage(www);
     }
 
        
