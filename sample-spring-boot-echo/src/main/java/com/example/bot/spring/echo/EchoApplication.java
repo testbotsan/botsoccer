@@ -45,10 +45,10 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
 
-        String m_str = context.getMessage().getText();
+        
         //String www;
 
-        switch (m_str) {
+        switch (originalMessageText) {
             case "はい": 
             {
                 this.replyText(replyToken, "かきくけこ");
