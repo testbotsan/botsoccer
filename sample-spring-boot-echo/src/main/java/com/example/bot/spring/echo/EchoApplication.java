@@ -48,18 +48,22 @@ public class EchoApplication {
 
         switch (m_str) {
             case "はい": 
-                www = "yes";
+            {
+                this.replyText(replyToken, "かきくけこ");
                 break;
-            
+            }
             case "いいえ": 
-                www = "no";
+            {
+                this.replyText(replyToken, "かきくけこ");
                 break;
-            
+            }
             default:
-               www = "uuu";
+            {
+                this.replyText(replyToken, "かきくけこ");
                 break;
+            }  
         }
-        return new TextMessage(originalMessageText + www);
+       
     }
 
        
