@@ -191,10 +191,10 @@ subprojects {
         }
     }
 
-    checkstyle {
+    /*checkstyle {
         configProperties = [projectDir: rootProject.projectDir]
         toolVersion = '8.23'
-    }
+    }*/
 
     tasks.withType(SpotBugsTask) {
         reports.xml.enabled = false
