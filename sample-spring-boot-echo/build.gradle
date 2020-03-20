@@ -19,6 +19,6 @@ apply plugin: "org.springframework.boot"
 dependencies {
     implementation project(':line-bot-spring-boot')
     implementation "org.springframework.boot:spring-boot-starter-web"
-
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 }
