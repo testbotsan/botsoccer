@@ -44,9 +44,9 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        String www;
+        String www = "as";
 
-        switch (event.getMessage().getText()) {
+       /* switch (event.getMessage().getText()) {
             case "はい": 
             
                 www = "はい";
@@ -56,10 +56,8 @@ public class EchoApplication {
             
                 www = "いいえ";
                 break;
-            } 
-           
-        
-        
+            } */
+    
         return new TextMessage(www);
     }
 
