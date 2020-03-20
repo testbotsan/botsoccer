@@ -23,7 +23,11 @@
     <webjars-jquery-ui.version>1.12.1</webjars-jquery-ui.version>
     <webjars-jquery.version>3.3.1-1</webjars-jquery.version>
   </properties>
-
+  <dependency>
+    <groupId>com.linecorp.bot</groupId> 
+    <artifactId>line-bot-spring-boot</artifactId>
+    <version>3.3.1</version>
+</dependency>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
