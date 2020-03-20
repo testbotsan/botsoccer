@@ -48,18 +48,17 @@ public class EchoApplication {
 
         switch (event.getMessage().getText()) {
             case "はい": 
-            {
+            
                 www = "はい";
                 break;
-            }
-           
+
             default:
-            {
+            
                 www = "いいえ";
                 break;
-            }  
-            break;
-        }
+            } 
+           
+        
         
         return new TextMessage(www);
     }
