@@ -57,13 +57,15 @@ public class EchoApplication {
             break;
 
             default :
+            x = null;
             return null;
             break;
         }
-        if(num = null){
+        x = Integer.toString(num);
+        if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
         }
-        x = Integer.toString(num);
+        
         return new TextMessage("生成された乱数は :" + x);
     }
 
@@ -75,5 +77,8 @@ public class EchoApplication {
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
         return randomValue;
+    }
+    private void DBsetUp(){
+        String url
     }
 }
