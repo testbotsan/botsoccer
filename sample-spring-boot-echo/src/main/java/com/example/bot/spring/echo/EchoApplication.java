@@ -67,7 +67,7 @@ public class EchoApplication {
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
     }
-    private int RandomNumber(){
+    private Message RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
         return new TextMessage("ランダムの値は" + randomValue);
