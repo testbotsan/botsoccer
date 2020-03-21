@@ -46,7 +46,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,int num) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        int Ram_number;
+        int Ram_number = 0;
         switch(originalMessageText){
             case "ランダム" :
             RandomNumber();
@@ -72,6 +72,6 @@ public class EchoApplication {
     private int RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
-        return num_Ran;
+        return randomValue;
     }
 }
