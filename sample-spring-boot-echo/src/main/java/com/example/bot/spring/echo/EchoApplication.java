@@ -58,7 +58,6 @@ public class EchoApplication {
 
             default :
             x = null;
-            return null;
             break;
         }
         x = Integer.toString(num);
