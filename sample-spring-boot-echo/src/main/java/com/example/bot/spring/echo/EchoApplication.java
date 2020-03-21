@@ -75,7 +75,7 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-    private int RandomNumber(){
+    private void RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
         //return randomValue;
