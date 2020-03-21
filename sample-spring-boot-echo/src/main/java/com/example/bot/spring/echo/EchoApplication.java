@@ -16,6 +16,8 @@
 
 package com.example.bot.spring.echo;
 
+import java.util.Random;
+
 import javax.naming.Context;
 
 import org.slf4j.Logger;
@@ -44,26 +46,29 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        String Text;
+        //String Text;
         switch(originalMessageText){
-            case "はい" :
-            Text = "はい";
+            case "ランダム" :
+            RandomNumber();
             break;
 
-            case "いいえ" :
-            Text = "いいえ";
+            case "国別" :
             break;
 
             default :
             Text = "あああ";
             break;
         }
-
-        return new TextMessage(originalMessageText + Text);
+        //return new TextMessage(originalMessageText + Text);
     }
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
+    }
+    private void RandomNumber(){
+        Random num_Ran = new Random();
+        int randomValue = num_Ran.nextInt(9); 
+        return new TextMessage(randomValue);
     }
 }
