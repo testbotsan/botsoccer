@@ -44,17 +44,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-       /* switch (event.getMessage().getText()) {
-            case "はい": 
-            
-                www = "はい";
-                break;
-
-            default:
-            
-                www = "いいえ";
-                break;
-            } */
+        String text;
         return new TextMessage(originalMessageText);
     }
 
