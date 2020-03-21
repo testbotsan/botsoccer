@@ -53,10 +53,11 @@ public class EchoApplication {
             break;
 
             case "国別" :
+            RandomNumber();
             break;
 
             default :
-            Text = "あああ";
+            return new TextMessage("ランダムか国別と話してください");
             break;
         }
         //return new TextMessage(originalMessageText + Text);
