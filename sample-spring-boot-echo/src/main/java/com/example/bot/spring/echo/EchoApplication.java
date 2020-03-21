@@ -46,23 +46,20 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,int num) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        int Ram_number = 0;
         switch(originalMessageText){
             case "ランダム" :
             RandomNumber();
-            return new TextMessage("ランダムでクイズを出します :" + num);
             break;
 
             case "国別" :
             RandomNumber();
-            return new TextMessage("国別でクイズを出します");
             break;
 
             default :
             return new TextMessage("ランダムか国別と話してください");
             break;
         }
-        //return new TextMessage(originalMessageText);
+        return new TextMessage(num);
     }
 
     @EventMapping
