@@ -70,6 +70,6 @@ public class EchoApplication {
     private int RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
-        return new TextMessage(randomValue);
+        return new TextMessage((String)randomValue);
     }
 }
