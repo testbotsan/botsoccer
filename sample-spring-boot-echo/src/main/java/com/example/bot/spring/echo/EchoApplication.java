@@ -60,7 +60,7 @@ public class EchoApplication {
             return new TextMessage("ランダムか国別と話してください");
             break;
         }
-        return new TextMessage(originalMessageText);
+        //return new TextMessage(originalMessageText);
     }
 
     @EventMapping
@@ -70,6 +70,6 @@ public class EchoApplication {
     private int RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
-        return new TextMessage((String)randomValue);
+        return new TextMessage("ランダムの値は" + randomValue);
     }
 }
