@@ -55,6 +55,7 @@ public class EchoApplication {
             break;
 
             default :
+            Text = "あああ";
             break;
         }
 
