@@ -43,17 +43,19 @@ public class EchoApplication {
     }
 
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,int num) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         int Ram_number;
         switch(originalMessageText){
             case "ランダム" :
             RandomNumber();
+            return new TextMessage("ランダムでクイズを出します :" + num);
             break;
 
             case "国別" :
             RandomNumber();
+            return new TextMessage("国別でクイズを出します");
             break;
 
             default :
@@ -67,9 +69,9 @@ public class EchoApplication {
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
     }
-    private Message RandomNumber(){
+    private int RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
-        return new TextMessage("ランダムの値は" + randomValue);
+        return num_Ran;
     }
 }
