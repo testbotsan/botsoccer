@@ -44,8 +44,19 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        String text;
-        return new TextMessage(originalMessageText);
+        String Text;
+        switch(originalMessageText){
+            case "はい" :
+            break;
+
+            case "いいえ" :
+            break;
+
+            default :
+            break;
+        }
+
+        return new TextMessage(originalMessageText + Text);
     }
 
     @EventMapping
