@@ -60,7 +60,7 @@ public class EchoApplication {
             return new TextMessage("ランダムか国別と話してください");
             break;
         }
-        //return new TextMessage(originalMessageText + Text);
+        return new TextMessage(originalMessageText);
     }
 
     @EventMapping
