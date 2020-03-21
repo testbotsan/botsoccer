@@ -72,12 +72,14 @@ public class EchoApplication {
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
     }
+
     private int RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
         return randomValue;
     }
-    private void DBsetUp(){
+
+    /*private void DBsetUp(){
         
-    }
+    }*/
 }
