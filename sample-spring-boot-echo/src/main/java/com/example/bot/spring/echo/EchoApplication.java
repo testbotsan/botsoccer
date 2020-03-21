@@ -47,7 +47,7 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         String x = "asas";
-        switch(originalMessageText){
+        /*switch(originalMessageText){
             case "ランダム" :
             //RandomNumber();
             x = "asasas";
@@ -61,7 +61,7 @@ public class EchoApplication {
             default :
             x = "asasasasasasasasa";
             break;
-        }
+        }*/
         /*x = Integer.toString(num);
         if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
