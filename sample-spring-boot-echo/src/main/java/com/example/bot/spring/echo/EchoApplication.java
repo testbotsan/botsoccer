@@ -79,7 +79,7 @@ public class EchoApplication {
         return randomValue;
     }
 
-    /*private void DBsetUp(){
+    private void DBsetUp(){
         
-    }*/
+    }
 }
