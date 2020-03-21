@@ -47,9 +47,11 @@ public class EchoApplication {
         String Text;
         switch(originalMessageText){
             case "はい" :
+            Text = "はい";
             break;
 
             case "いいえ" :
+            Text = "いいえ";
             break;
 
             default :
