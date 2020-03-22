@@ -43,29 +43,27 @@ public class EchoApplication {
     }
 
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event/*,int num*/) {
+    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,int num) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         String x = "asas";
-        /*switch(originalMessageText){
+        switch(originalMessageText){
             case "ランダム" :
-            //RandomNumber();
-            x = "asasas";
+            RandomNumber();
             break;
 
             case "国別" :
-            //RandomNumber();
-            x = "asasasasas";
+            RandomNumber();
             break;
 
             default :
-            x = "asasasasasasasasa";
+            x = null;
             break;
-        }*/
-        /*x = Integer.toString(num);
+        }
+        x = Integer.toString(num);
         if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
-        }*/
+        }
         
         return new TextMessage("生成された乱数は :" + x);
     }
@@ -75,13 +73,13 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-    /*private void RandomNumber(){
+    private int RandomNumber(){
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
-        //return randomValue;
+        return randomValue;
     }
 
     private void DBsetUp(){
-        
-    }*/
+    
+    }
 }
