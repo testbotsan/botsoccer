@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright 2016 LINE Corporation
  *
  * LINE Corporation licenses this file to you under the Apache License,
@@ -15,7 +15,6 @@
  */
 
 package com.example.bot.spring.echo;
-import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,8 +34,6 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
 
-    String x = "asas";
-    int randomValue;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -45,44 +42,11 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        linebot(originalMessageText);
-        return null;
+        return new TextMessage(originalMessageText);
     }
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
-    }
-
-    public void RandomNumber() {
-        Random num_Ran = new Random();
-        randomValue = num_Ran.nextInt(9);
-    }
-
-    @EventMapping
-    public Message linebot(String botms) {
-
-        switch(botms){
-
-            case "ランダム":
-            RandomNumber();
-            x = Integer.toString(randomValue);
-            break;
-
-            case "国別":
-            RandomNumber();
-            x = Integer.toString(randomValue);
-            break;
-
-            default:
-            x = null;
-            break;
-        }
-        
-        if(x == null){
-            return new TextMessage("ランダムか国別を指定してください");
-        }else{
-            return new TextMessage("生成された乱数は :" + x);
-        }
     }
 }
