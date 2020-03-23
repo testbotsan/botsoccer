@@ -15,7 +15,6 @@
  */
 
 package com.example.bot.spring.echo;
-
 import java.util.Random;
 
 import org.slf4j.Logger;
@@ -37,7 +36,7 @@ public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
 
     String x = "asas";
-    int randomValue = 0;
+    int randomValue;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -55,16 +54,15 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-    public void RandomNumber(){
+    public void RandomNumber() {
         Random num_Ran = new Random();
-        randomValue = num_Ran.nextInt(9); 
+        randomValue = num_Ran.nextInt(9);
     }
 
     @EventMapping
-    public Message linebot(String botms){
+    public Message linebot(String botms) {
 
-        switch(botms)
-        {
+        switch(botms){
             case "ランダム":
             RandomNumber();
             x = Integer.toString(randomValue);
