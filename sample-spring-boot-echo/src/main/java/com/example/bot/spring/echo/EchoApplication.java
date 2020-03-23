@@ -33,7 +33,9 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 @LineMessageHandler
 public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
-
+    
+    String x;
+    int randomValue;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -42,11 +44,44 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        return new TextMessage(originalMessageText);
+        linebot(originalMessageText);
+        return null;
     }
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
+    }
+
+    public void RandomNumber() {
+        Random num_Ran = new Random();
+        randomValue = num_Ran.nextInt(9);
+    }
+
+    @EventMapping
+    public Message linebot(String botms) {
+
+        switch(botms){
+
+            case "ランダム":
+            RandomNumber();
+            x = Integer.toString(randomValue);
+            break;
+
+            case "国別":
+            RandomNumber();
+            x = Integer.toString(randomValue);
+            break;
+
+            default:
+            x = null;
+            break;
+        }
+        
+        if(x == null){
+            return new TextMessage("ランダムか国別を指定してください");
+        }else{
+            return new TextMessage("生成された乱数は :" + x);
+        }
     }
 }
