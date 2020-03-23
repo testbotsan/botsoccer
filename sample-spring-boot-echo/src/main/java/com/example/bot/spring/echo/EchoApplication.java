@@ -48,16 +48,16 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         String x = "asas";
         switch(originalMessageText){
-            case "ランダム" :
+            case "ランダム":
             RandomNumber();
             break;
 
-            case "国別" :
+            case "国別":
             RandomNumber();
             break;
 
-            default :
-            x = null;
+            default:
+            x = 10;
             break;
         }
         x = Integer.toString(num);
