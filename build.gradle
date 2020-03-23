@@ -33,7 +33,7 @@ buildscript {
     dependencies {
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.27.0'
         classpath 'com.puppycrawl.tools:checkstyle:8.29'
-        classpath 'gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:2.0.0'
+        classpath 'gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:4.0.4'
         classpath 'io.franzbecker:gradle-lombok:3.2.0'
         classpath 'io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE'
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
@@ -198,7 +198,7 @@ subprojects {
 
     tasks.withType(SpotBugsTask) {
         reports.xml.enabled = false
-        reports.html.enabled = false
+        reports.html.enabled = true
         excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
     }
 
