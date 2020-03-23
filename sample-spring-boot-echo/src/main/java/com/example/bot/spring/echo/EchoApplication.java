@@ -65,10 +65,12 @@ public class EchoApplication {
         {
             case "ランダム":
             RandomNumber();
+            x = Integer.toString(randomValue);
             break;
 
             case "国別":
             RandomNumber();
+            x = Integer.toString(randomValue);
             break;
 
             default:
@@ -76,12 +78,10 @@ public class EchoApplication {
             break;
         }
 
-        x = Integer.toString(randomValue);
         if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
         }else{
             return new TextMessage("生成された乱数は :" + x);
         }
-       
     }
 }
