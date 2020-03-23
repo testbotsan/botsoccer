@@ -72,14 +72,16 @@ public class EchoApplication {
             break;
 
             default:
-            x = "as";
+            x = null;
             break;
         }
 
         x = Integer.toString(randomValue);
         if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
+        }else{
+            return new TextMessage("生成された乱数は :" + x);
         }
-        return new TextMessage("生成された乱数は :" + x);
+       
     }
 }
