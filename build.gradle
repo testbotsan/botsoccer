@@ -198,7 +198,7 @@ subprojects {
 
     tasks.withType(SpotBugsTask) {
         reports.xml.enabled = false
-        reports.html.enabled = true
+        reports.html.enabled = false
         excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
     }
 
