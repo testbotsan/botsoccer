@@ -46,6 +46,7 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
 
         String x;
+        int randomValue;
     
         switch(originalMessageText){
 
