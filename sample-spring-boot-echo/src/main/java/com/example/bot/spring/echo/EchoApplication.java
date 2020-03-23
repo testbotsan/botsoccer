@@ -54,12 +54,13 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-    public int RandomNumber(){
+    public void RandomNumber(){
         Random num_Ran = new Random();
         randomValue = num_Ran.nextInt(9); 
     }
 
-    public void linebot(String botms){
+    @EventMapping
+    public Message linebot(String botms){
 
         switch(botms)
         {
