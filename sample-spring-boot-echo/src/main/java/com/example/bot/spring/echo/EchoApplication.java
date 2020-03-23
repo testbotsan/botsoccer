@@ -46,7 +46,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        linebot();
+        linebot(originalMessageText);
     }
 
     @EventMapping
@@ -59,8 +59,9 @@ public class EchoApplication {
         randomValue = num_Ran.nextInt(9); 
     }
 
-    public void linebot(){
-        switch(originalMessageText)
+    public void linebot(String botms){
+
+        switch(botms)
         {
             case "ランダム":
             RandomNumber();
