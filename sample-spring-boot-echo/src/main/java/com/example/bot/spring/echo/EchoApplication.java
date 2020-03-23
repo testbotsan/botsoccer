@@ -63,6 +63,7 @@ public class EchoApplication {
     public Message linebot(String botms) {
 
         switch(botms){
+
             case "ランダム":
             RandomNumber();
             x = Integer.toString(randomValue);
@@ -77,7 +78,7 @@ public class EchoApplication {
             x = null;
             break;
         }
-
+        
         if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
         }else{
