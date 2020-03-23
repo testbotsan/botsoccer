@@ -57,7 +57,7 @@ public class EchoApplication {
             break;
 
             default:
-            x = 10;
+            x = "as";
             break;
         }
         x = Integer.toString(num);
