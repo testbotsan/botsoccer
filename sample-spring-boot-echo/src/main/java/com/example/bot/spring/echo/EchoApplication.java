@@ -18,8 +18,6 @@ package com.example.bot.spring.echo;
 
 import java.util.Random;
 
-import javax.naming.Context;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -77,9 +75,5 @@ public class EchoApplication {
         Random num_Ran = new Random();
         int randomValue = num_Ran.nextInt(9); 
         return randomValue;
-    }
-
-    private void DBsetUp(){
-    
     }
 }
