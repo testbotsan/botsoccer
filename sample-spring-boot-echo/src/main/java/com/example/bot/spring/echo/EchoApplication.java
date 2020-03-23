@@ -36,16 +36,32 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
 
+    String x = "asas";
+    int randomValue = 0;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
 
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,int num) {
+    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        String x = "asas";
-        switch(originalMessageText){
+        linebot();
+    }
+
+    @EventMapping
+    public void handleDefaultMessageEvent(Event event) {
+        System.out.println("event: " + event);
+    }
+
+    public int RandomNumber(){
+        Random num_Ran = new Random();
+        randomValue = num_Ran.nextInt(9); 
+    }
+
+    public void linebot(){
+        switch(originalMessageText)
+        {
             case "ランダム":
             RandomNumber();
             break;
@@ -58,22 +74,11 @@ public class EchoApplication {
             x = "as";
             break;
         }
-        x = Integer.toString(num);
+
+        x = Integer.toString(randomValue);
         if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
         }
-        
         return new TextMessage("生成された乱数は :" + x);
-    }
-
-    @EventMapping
-    public void handleDefaultMessageEvent(Event event) {
-        System.out.println("event: " + event);
-    }
-
-    private int RandomNumber(){
-        Random num_Ran = new Random();
-        int randomValue = num_Ran.nextInt(9); 
-        return randomValue;
     }
 }
