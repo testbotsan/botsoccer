@@ -47,6 +47,7 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         linebot(originalMessageText);
+        return null;
     }
 
     @EventMapping
