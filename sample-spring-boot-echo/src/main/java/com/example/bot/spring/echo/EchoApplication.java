@@ -38,6 +38,7 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
+    String error;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -65,12 +66,10 @@ public class EchoApplication {
         }
         
         if(x == null){
-
-           
+            return new TextMessage("生成された乱数は : null");
+        }else{
             try{
-                Connection conn =
-            DriverManager.getConnection
-            ("jdbc:postgresql://localhost:5432/botsoccer","postgresql","password");
+                Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/botsoccer","postgres","password");
             // ステートメントを作成
             Statement stmt = conn.createStatement();
             // 問合せの実行
@@ -78,24 +77,19 @@ public class EchoApplication {
             // 問合せ結果の表示
             while ( rset.next() ) {
               // 列番号による指定
-              return new TextMessage(rset.getInt(1) + "\t" + rset.getString(2));
-                   }
+                return new TextMessage(rset.getString(1) + "\t" + rset.getString(2));
+            }
             // 結果セットをクローズ
             rset.close();
             // ステートメントをクローズ
             stmt.close();
             // 接続をクローズ
             conn.close();
-
-            return new TextMessage("接続できたよ");
             }catch(Exception exception){
-                String error = exception.toString();
-                return new TextMessage(error);
+                return new TextMessage("予期せぬエラー");
             }
-            
-        }else{
-            return new TextMessage("生成された乱数は :" + x);
         }
+         return new TextMessage("OK");
     }
     
     @EventMapping
