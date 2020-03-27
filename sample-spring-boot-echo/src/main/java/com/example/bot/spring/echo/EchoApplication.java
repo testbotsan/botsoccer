@@ -70,7 +70,7 @@ public class EchoApplication {
             try{
                 Connection conn =
             DriverManager.getConnection
-            ("jdbc:postgresql://localhost:5432/botsoccer");
+            ("jdbc:postgresql://localhost:5432/botsoccer","postgresql","password");
             // ステートメントを作成
             Statement stmt = conn.createStatement();
             // 問合せの実行
