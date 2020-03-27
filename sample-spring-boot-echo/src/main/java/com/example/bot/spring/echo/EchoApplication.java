@@ -21,6 +21,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import java.util.Random;
 
 import com.linecorp.bot.model.event.Event;
@@ -64,6 +73,42 @@ public class EchoApplication {
         
         if(x == null){
             return new TextMessage("ランダムか国別を指定してください");
+
+            try (
+                Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/botsoccer", // "jdbc:postgresql://<場所>:<ポート>/<データベース名>"
+                        "postgres", //user
+                        "postgres"); //password;
+                Statement statement =    connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(
+
+                        "select * From "
+                       
+                        );
+                ){
+
+            List<String> columns = new ArrayList<String>();
+
+            ResultSetMetaData rsmd = resultSet.getMetaData();
+            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                columns.add(rsmd.getColumnName(i));
+            }
+
+            System.out.println(resultSet);
+
+            while (resultSet.next()) {
+                System.out.println("\ncount:" + resultSet.getRow());
+
+                columns.stream().forEach((i)->{try {
+                    System.out.println(i + ":" + resultSet.getString(i));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return new TextMessage("DB接続エラー");
+                }});
+            }
+
+
+        }
+    
         }else{
             return new TextMessage("生成された乱数は :" + x);
         }
