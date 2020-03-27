@@ -78,7 +78,7 @@ public class EchoApplication {
             // 問合せ結果の表示
             while ( rset.next() ) {
               // 列番号による指定
-              System.out.println(rset.getInt(1) + "\t" + rset.getString(2));
+              return new TextMessage(rset.getInt(1) + "\t" + rset.getString(2));
                    }
             // 結果セットをクローズ
             rset.close();
@@ -86,8 +86,11 @@ public class EchoApplication {
             stmt.close();
             // 接続をクローズ
             conn.close();
+
+            return new TextMessage("接続できたよ");
             }catch(Exception exception){
-                return new TextMessage(exception);
+                String error = exception.toString();
+                return new TextMessage(error);
             }
             
         }else{
