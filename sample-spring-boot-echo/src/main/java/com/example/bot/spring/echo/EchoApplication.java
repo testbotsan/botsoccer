@@ -66,7 +66,7 @@ public class EchoApplication {
         
         if(x == null){
 
-            return new TextMessage("ランダムか国別を指定してください"); 
+           
             try{
                 Connection conn =
             DriverManager.getConnection
