@@ -21,14 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
 
 import java.util.Random;
 
@@ -72,43 +65,31 @@ public class EchoApplication {
         }
         
         if(x == null){
-            return new TextMessage("ランダムか国別を指定してください");
 
-            try (
-                Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/botsoccer", // "jdbc:postgresql://<場所>:<ポート>/<データベース名>"
-                        "postgres", //user
-                        "postgres"); //password;
-                Statement statement =    connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(
-
-                        "select * From "
-                       
-                        );
-                ){
-
-            List<String> columns = new ArrayList<String>();
-
-            ResultSetMetaData rsmd = resultSet.getMetaData();
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                columns.add(rsmd.getColumnName(i));
+            return new TextMessage("ランダムか国別を指定してください"); 
+            try{
+                Connection conn =
+            DriverManager.getConnection
+            ("jdbc:postgresql://localhost:5432/botsoccer");
+            // ステートメントを作成
+            Statement stmt = conn.createStatement();
+            // 問合せの実行
+            ResultSet rset = stmt.executeQuery("select * From ram_number");
+            // 問合せ結果の表示
+            while ( rset.next() ) {
+              // 列番号による指定
+              System.out.println(rset.getInt(1) + "\t" + rset.getString(2));
+                   }
+            // 結果セットをクローズ
+            rset.close();
+            // ステートメントをクローズ
+            stmt.close();
+            // 接続をクローズ
+            conn.close();
+            }catch(Exception exception){
+                return new TextMessage(exception);
             }
-
-            System.out.println(resultSet);
-
-            while (resultSet.next()) {
-                System.out.println("\ncount:" + resultSet.getRow());
-
-                columns.stream().forEach((i)->{try {
-                    System.out.println(i + ":" + resultSet.getString(i));
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    return new TextMessage("DB接続エラー");
-                }});
-            }
-
-
-        }
-    
+            
         }else{
             return new TextMessage("生成された乱数は :" + x);
         }
