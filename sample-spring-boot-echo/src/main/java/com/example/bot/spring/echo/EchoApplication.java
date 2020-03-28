@@ -127,7 +127,7 @@ public class EchoApplication {
 
         switch(randomValue){
             case 1:
-                this.replyText("現在のサッカー日本代表の世界ランキングは？");
+                this.replyText( new TextMessage("現在のサッカー日本代表の世界ランキングは？"));
             if(awnser.equals("28位")){
                 return new TextMessage("正解");
             }else{
@@ -136,7 +136,7 @@ public class EchoApplication {
             break;
 
             case 2:
-                this.replyText("18歳という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
+                this.replyText( new TextMessage("18歳という若さでスペインの強豪レアル・マドリーに移籍した人物は？"));
             if(awnser.equals("久保建英")){
                 return new TextMessage("正解");
             }else{
