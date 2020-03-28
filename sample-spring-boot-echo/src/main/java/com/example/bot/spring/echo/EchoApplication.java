@@ -56,7 +56,7 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         User = originalMessageText;
-        String x;
+    
         switch(originalMessageText){
 
             case "ランダム":
@@ -67,6 +67,7 @@ public class EchoApplication {
             break;
 
             default:
+            String x;
             x = null;
             break;
         }
@@ -81,10 +82,35 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
+    public Message Genre(){
+
+        String genre;
+
+        if(User.equals("ランダム")){
+
+            genre = "ランダム";
+
+        }else if(User.equals("国別")){
+
+            genre = "国別";
+
+        }else if(User.equals("ルール別")){
+
+            genre = "ルール別";
+
+        }
+
+        Message msg = new Message();
+        msg.setMessage(genre);
+        return new TextMessage(msg);
+
+    }
+
     public Message Quiz(){
         Random random = new Random();
         randomValue = random.nextInt(1);
         String quiz;
+        
         
         switch(randomValue){
             case 0:
@@ -95,7 +121,9 @@ public class EchoApplication {
             quiz = "韓国";
             break;
         }
-        return new TextMessage(quiz);
+        Message msg = new Message();
+        msg.setMessage(quiz);
+        return new TextMessage(msg);
     }
 
     public Message Awnser(){
@@ -120,6 +148,8 @@ public class EchoApplication {
             }
             break;
         }
-        return new TextMessage(q_STR);
+        Message msg = new Message();
+        msg.setMessage(q_STR);
+        return new TextMessage(msg);
     }
 }
