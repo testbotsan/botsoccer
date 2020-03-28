@@ -45,8 +45,8 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
 
-        String x;
-        String y;
+        String x = "first";
+        String y = "seconed";
         String z = "aaa";
         int randomValue;
         switch(originalMessageText){
@@ -68,7 +68,7 @@ public class EchoApplication {
         }else{
             if(originalMessageText.equals("ランダム")){
                 Random random = new Random();
-                randomValue = random.nextInt(1);
+                randomValue = random.nextInt(10);
                 switch(1){
                     case 1:
                     new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
