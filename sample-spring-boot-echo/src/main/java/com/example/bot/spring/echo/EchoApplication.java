@@ -78,7 +78,6 @@ public class EchoApplication {
                         }else{
                             return new TextMessage("残念");
                         }
-                        break;
                     
                 }
             }
