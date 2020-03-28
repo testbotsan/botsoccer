@@ -21,8 +21,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.sql.*;
-
 import java.util.Random;
 
 import com.linecorp.bot.model.event.Event;
@@ -38,7 +36,6 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
-    String error;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -57,9 +54,9 @@ public class EchoApplication {
 
             case "ランダム":
             case "国別":
-            Random num_Ran = new Random();
-            randomValue = num_Ran.nextInt(9);
-            x = Integer.toString(randomValue);
+            case "ルール別":
+            TextMessage(originalMessageText + "からクイズを出題します");
+            x = originalMessageText;
             break;
 
             default:
@@ -68,36 +65,19 @@ public class EchoApplication {
         }
         
         if(x == null){
-            return new TextMessage("生成された乱数は : null");
+            return new TextMessage("「ランダム」「ルール別」「国別」のいずれかを選択してください");
         }else{
-            try{
-                Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/botsoccer","postgres","password");
-            // ステートメントを作成
-            Statement stmt = conn.createStatement();
-            // 問合せの実行
-            ResultSet rset = stmt.executeQuery("select * From ram_number");
-            // 問合せ結果の表示
-            while ( rset.next() ) {
-              // 列番号による指定
-                rset1 = rset.getString(1);
-                rset2 = rset.getString(2);
-            }
-            
-            // 結果セットをクローズ
-            rset.close();
-            // ステートメントをクローズ
-            stmt.close();
-            // 接続をクローズ
-            conn.close();
-
-            return new TextMessage(rset1 + "\t" + rset2);
-
-            }catch(Exception exception){
-                return new TextMessage("予期せぬエラー");
+            switch(x){
+                case "ランダム" :
+                Random random = new Random(1);
+                randomValue = random.nextInt(29);
+                switch(randomValue){
+                    case 1:
+                    TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
+                }
             }
         }
-        
-    }  
+    }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
