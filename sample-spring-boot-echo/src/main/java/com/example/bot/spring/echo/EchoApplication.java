@@ -57,7 +57,7 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         
         User = originalMessageText;
-        String x;
+        String x = "first";
         switch(originalMessageText){
 
             case "ランダム":
@@ -84,7 +84,7 @@ public class EchoApplication {
 
     public Message Genre(){
 
-        String genre;
+        String genre = "first";
 
         if(User.equals("ランダム")){
 
@@ -106,7 +106,7 @@ public class EchoApplication {
     public Message Quiz(){
         Random random = new Random();
         randomValue = random.nextInt(1);
-        String quiz;
+        String quiz = "first";
         
         
         switch(randomValue){
@@ -125,7 +125,7 @@ public class EchoApplication {
     public Message Awnser(){
 
         String Awnser = User;
-        String q_STR;
+        String q_STR = "first";
 
         switch(randomValue){
             case 0 :
