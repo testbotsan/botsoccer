@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.lang.reflect.Method;
 import java.util.Random;
 
 import javax.naming.Context;
@@ -47,6 +48,10 @@ public class EchoApplication {
     
     int randomValue;
     String User;
+    boolean ch = true;
+    boolean ge = true;
+    boolean qu = true;
+    boolean an = true;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -57,25 +62,24 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         
         User = originalMessageText;
-        String x = "first";
-        switch(originalMessageText){
 
-            case "ランダム":
-            case "国別":
-            case "ルール別":
-            Quiz();
-            Awnser();
-            break;
+        while(ch){
 
-            default:
-            x = null;
-            break;
+            if(ge == true){
+                Genre();
+                ge = false;         
+            }else if(qu == true){
+                Quiz();
+                qu = false;
+            }else if(an == true){
+                Awnser();
+                an = false;
+            }
+
         }
         
-        if(x == null){
-            return new TextMessage("ランダム、国別、ルール別のいずれかを選択してください");
-        }
-        return new TextMessage(originalMessageText + "からクイズを出題します");
+        
+        return null;
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
@@ -98,16 +102,18 @@ public class EchoApplication {
 
             genre = "ルール別";
 
-        }
-        return new TextMessage(genre + "");
+        }else{
 
+            return new TextMessage("「ランダム」「国別」「ルール別」から選んで発言してください");
+
+        }
+        return new TextMessage(genre + "からクイズを出題します");
     }
 
     public Message Quiz(){
         Random random = new Random();
         randomValue = random.nextInt(1);
         String quiz = "first";
-        
         
         switch(randomValue){
             case 0:
@@ -144,7 +150,10 @@ public class EchoApplication {
             }
             break;
         }
-       
+        boolean ch = true;
+        boolean ge = true;
+        boolean qu = true;
+        boolean an = true;
         return new TextMessage(q_STR + "");
     }
 }
