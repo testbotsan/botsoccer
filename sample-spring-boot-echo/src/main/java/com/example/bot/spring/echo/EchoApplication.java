@@ -93,7 +93,7 @@ public class EchoApplication {
             if(awnser.equals("久保建英")){
                 return new TextMessage("正解");
             }else{
-                return new TextMessage("不正解")
+                return new TextMessage("不正解");
             }
             break;
         }
