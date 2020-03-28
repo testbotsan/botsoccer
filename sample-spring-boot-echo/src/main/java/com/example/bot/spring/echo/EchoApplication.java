@@ -82,9 +82,14 @@ public class EchoApplication {
                     break;
 
                     default:
+                    z = "om";
                     break;
                 }
-            }
+                default:
+                break;
+            } 
+               
+
         }
         return new TextMessage(z);
     }
