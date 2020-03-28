@@ -38,11 +38,6 @@ import com.linecorp.bot.client.LineBlobClient;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.action.DatetimePickerAction;
 import com.linecorp.bot.model.action.MessageAction;
-import com.linecorp.bot.model.action.PostbackAction;
-import com.linecorp.bot.model.action.URIAction;
-import com.linecorp.bot.model.event.BeaconEvent;
-import com.linecorp.bot.model.event.FollowEvent;
-import com.linecorp.bot.model.event.JoinEvent;
 import com.linecorp.bot.model.event.MemberJoinedEvent;
 import com.linecorp.bot.model.event.MemberLeftEvent;
 import com.linecorp.bot.model.event.PostbackEvent;
@@ -57,32 +52,28 @@ import com.linecorp.bot.model.event.message.VideoMessageContent;
 import com.linecorp.bot.model.event.source.GroupSource;
 import com.linecorp.bot.model.event.source.RoomSource;
 import com.linecorp.bot.model.event.source.Source;
-import com.linecorp.bot.model.message.AudioMessage;
-import com.linecorp.bot.model.message.ImageMessage;
-import com.linecorp.bot.model.message.ImagemapMessage;
-import com.linecorp.bot.model.message.LocationMessage;
-import com.linecorp.bot.model.message.StickerMessage;
+
+
 import com.linecorp.bot.model.message.TemplateMessage;
-import com.linecorp.bot.model.message.VideoMessage;
+
 import com.linecorp.bot.model.message.imagemap.ImagemapArea;
 import com.linecorp.bot.model.message.imagemap.ImagemapBaseSize;
 import com.linecorp.bot.model.message.imagemap.ImagemapExternalLink;
-import com.linecorp.bot.model.message.imagemap.ImagemapVideo;
+
 import com.linecorp.bot.model.message.imagemap.MessageImagemapAction;
-import com.linecorp.bot.model.message.imagemap.URIImagemapAction;
+
 import com.linecorp.bot.model.message.template.ButtonsTemplate;
 import com.linecorp.bot.model.message.template.CarouselColumn;
 import com.linecorp.bot.model.message.template.CarouselTemplate;
 import com.linecorp.bot.model.message.template.ConfirmTemplate;
-import com.linecorp.bot.model.message.template.ImageCarouselColumn;
-import com.linecorp.bot.model.message.template.ImageCarouselTemplate;
+
 
 @SpringBootApplication
 @LineMessageHandler
 public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
-    String[] User_ans;
+    int randomValue;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -102,7 +93,8 @@ public class EchoApplication {
             case "ランダム":
             case "国別":
             case "ルール別":
-            Quiz( event.getMessage().getText());
+            Quiz();
+            Awnser();
             break;
 
             default:
@@ -120,27 +112,40 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-    public Message Quiz(String STR){
+    public Message Quiz(){
         Random random = new Random();
-        int randomValue = random.nextInt(1);
-        String awnser = STR;
+        randomValue = random.nextInt(1);
+        
 
         switch(randomValue){
+            case 0:
+            return new TextMessage("日本");
+            break;
+
             case 1:
-                this.replyText( new TextMessage("現在のサッカー日本代表の世界ランキングは？"));
-            if(awnser.equals("28位")){
+            return new TextMessage("韓国");
+            break;
+        }
+    }
+
+    public Message Awnser(){
+
+        String Awnser = event.getMessage().getText();
+
+        switch(randomValue){
+            case 0 :
+            if(Awnser.equals("日本")){
                 return new TextMessage("正解");
             }else{
-                return new TextMessage("不正解");
+                return new TextMessage("残念");
             }
             break;
 
-            case 2:
-                this.replyText( new TextMessage("18歳という若さでスペインの強豪レアル・マドリーに移籍した人物は？"));
-            if(awnser.equals("久保建英")){
+            case 1 :
+            if(Awnser.equals("韓国")){
                 return new TextMessage("正解");
             }else{
-                return new TextMessage("不正解");
+                return new TextMessage("残念");
             }
             break;
         }
