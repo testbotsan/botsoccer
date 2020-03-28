@@ -49,8 +49,8 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
 
         String x;
-        String rset1;
-        String rset2;
+        String rset1 = null;
+        String rset2 = null;
         int randomValue;
     
         switch(originalMessageText){
@@ -91,12 +91,12 @@ public class EchoApplication {
             conn.close();
 
             return new TextMessage(rset1 + "\t" + rset2);
-            
+
             }catch(Exception exception){
                 return new TextMessage("予期せぬエラー");
             }
         }
-         return new TextMessage("OK");
+        
     }  
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
