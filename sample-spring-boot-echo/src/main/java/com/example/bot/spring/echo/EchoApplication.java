@@ -54,7 +54,6 @@ public class EchoApplication {
             case "ランダム":
             case "国別":
             case "ルール別":
-            return new TextMessage(originalMessageText + "からクイズを出題します");
             x = originalMessageText;
             break;
 
@@ -72,7 +71,7 @@ public class EchoApplication {
                 randomValue = random.nextInt(29);
                 switch(randomValue){
                     case 1:
-                    return new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
+                    new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
                     y = event.getMessage().getText();
                         if(y.equals("コロンビア")){
                             return new TextMessage("正解");
