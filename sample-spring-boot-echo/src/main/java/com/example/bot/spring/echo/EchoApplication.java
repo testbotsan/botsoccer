@@ -47,7 +47,7 @@ public class EchoApplication {
 
         String x;
         String y;
-        String z = null;
+        String z = "aaa";
         int randomValue;
     
         switch(originalMessageText){
