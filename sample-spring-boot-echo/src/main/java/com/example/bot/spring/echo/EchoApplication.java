@@ -47,6 +47,7 @@ public class EchoApplication {
 
         String x;
         String y;
+        String z;
         int randomValue;
     
         switch(originalMessageText){
@@ -74,13 +75,14 @@ public class EchoApplication {
                     new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
                     y = event.getMessage().getText();
                         if(y.equals("コロンビア")){
-                            return new TextMessage("正解");
+                            z = "正解";
                         }else{
-                            return new TextMessage("残念");
+                            z = "残念";
                         }
-                    
+                    break;
                 }
             }
+            return new TextMessage(z);
         }
     }
     @EventMapping
