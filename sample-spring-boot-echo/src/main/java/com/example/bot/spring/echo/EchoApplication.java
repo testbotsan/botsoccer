@@ -64,12 +64,12 @@ public class EchoApplication {
         }
         
         if(x == null){
-            return new TextMessage("「ランダム」「ルール別」「国別」のいずれかを選択してください");
+            return new TextMessage("ランダム、国別、ルール別のいずれかを選択してください");
         }else{
             if(originalMessageText == "ランダム"){
                 Random random = new Random();
                 randomValue = random.nextInt(1);
-                switch(randomValue){
+                switch(1){
                     case 1:
                     new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
                     y = event.getMessage().getText();
