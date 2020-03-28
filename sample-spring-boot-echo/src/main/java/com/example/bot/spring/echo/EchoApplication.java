@@ -48,10 +48,7 @@ public class EchoApplication {
     
     int randomValue;
     String User;
-    boolean ch = true;
-    boolean ge = true;
-    boolean qu = true;
-    boolean an = true;
+    
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -61,7 +58,7 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         
-        User = originalMessageText;
+        
 
         return null;
     }
@@ -91,6 +88,7 @@ public class EchoApplication {
             return new TextMessage("「ランダム」「国別」「ルール別」から選んで発言してください");
 
         }
+        Quiz();
         return new TextMessage(genre + "からクイズを出題します");
     }
 
@@ -108,7 +106,7 @@ public class EchoApplication {
             quiz = "韓国";
             break;
         }
-     
+        Awnser();
         return new TextMessage(quiz + "");
     }
 
@@ -134,10 +132,7 @@ public class EchoApplication {
             }
             break;
         }
-        boolean ch = true;
-        boolean ge = true;
-        boolean qu = true;
-        boolean an = true;
+       Genre();
         return new TextMessage(q_STR + "");
     }
 }
