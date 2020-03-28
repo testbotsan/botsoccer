@@ -55,6 +55,7 @@ public class EchoApplication {
             case "国別":
             case "ルール別":
             new TextMessage( originalMessageText + "が選択されました");
+            x = "1";
             break;
 
             default:
@@ -65,8 +66,7 @@ public class EchoApplication {
         if(x == null){
             return new TextMessage("「ランダム」「ルール別」「国別」のいずれかを選択してください");
         }else{
-            switch(x){
-                case "ランダム" :
+            if(originalMessage == "ランダム"){
                 Random random = new Random();
                 randomValue = random.nextInt(1);
                 switch(randomValue){
@@ -84,9 +84,7 @@ public class EchoApplication {
                     z = "om";
                     break;
                 }
-                default:
-                break;
-            } 
+            }
         }
         return new TextMessage(z);
     }
