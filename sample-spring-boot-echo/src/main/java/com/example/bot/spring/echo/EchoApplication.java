@@ -34,38 +34,10 @@ import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
-import com.linecorp.bot.client.LineBlobClient;
-import com.linecorp.bot.client.LineMessagingClient;
-import com.linecorp.bot.model.action.DatetimePickerAction;
-import com.linecorp.bot.model.action.MessageAction;
-import com.linecorp.bot.model.event.MemberJoinedEvent;
-import com.linecorp.bot.model.event.MemberLeftEvent;
-import com.linecorp.bot.model.event.PostbackEvent;
-import com.linecorp.bot.model.event.UnfollowEvent;
-import com.linecorp.bot.model.event.message.AudioMessageContent;
-import com.linecorp.bot.model.event.message.ContentProvider;
-import com.linecorp.bot.model.event.message.FileMessageContent;
-import com.linecorp.bot.model.event.message.ImageMessageContent;
-import com.linecorp.bot.model.event.message.LocationMessageContent;
-import com.linecorp.bot.model.event.message.StickerMessageContent;
-import com.linecorp.bot.model.event.message.VideoMessageContent;
-import com.linecorp.bot.model.event.source.GroupSource;
-import com.linecorp.bot.model.event.source.RoomSource;
-import com.linecorp.bot.model.event.source.Source;
 
 
-import com.linecorp.bot.model.message.TemplateMessage;
 
-import com.linecorp.bot.model.message.imagemap.ImagemapArea;
-import com.linecorp.bot.model.message.imagemap.ImagemapBaseSize;
-import com.linecorp.bot.model.message.imagemap.ImagemapExternalLink;
 
-import com.linecorp.bot.model.message.imagemap.MessageImagemapAction;
-
-import com.linecorp.bot.model.message.template.ButtonsTemplate;
-import com.linecorp.bot.model.message.template.CarouselColumn;
-import com.linecorp.bot.model.message.template.CarouselTemplate;
-import com.linecorp.bot.model.message.template.ConfirmTemplate;
 
 
 @SpringBootApplication
@@ -112,39 +84,42 @@ public class EchoApplication {
     public Message Quiz(){
         Random random = new Random();
         randomValue = random.nextInt(1);
+        String quiz;
         
-
         switch(randomValue){
             case 0:
-            return new TextMessage("日本");
+            quiz = "日本";
             break;
 
             case 1:
-            return new TextMessage("韓国");
+            quiz = "韓国";
             break;
         }
+        return new TextMessage(quiz);
     }
 
     public Message Awnser(){
 
         String Awnser = User;
+        String q_STR;
 
         switch(randomValue){
             case 0 :
             if(Awnser.equals("日本")){
-                return new TextMessage("正解");
+                q_STR = "正解";
             }else{
-                return new TextMessage("残念");
+                q_STR = "残念";
             }
             break;
 
             case 1 :
             if(Awnser.equals("韓国")){
-                return new TextMessage("正解");
+                q_STR = "正解";
             }else{
-                return new TextMessage("残念");
+                q_STR = "残念";
             }
             break;
         }
+        return new TextMessage(q_STR);
     }
 }
