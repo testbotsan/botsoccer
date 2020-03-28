@@ -49,13 +49,12 @@ public class EchoApplication {
         String y;
         String z = "aaa";
         int randomValue;
-    
         switch(originalMessageText){
 
             case "ランダム":
             case "国別":
             case "ルール別":
-            x = originalMessageText;
+            new TextMessage( originalMessageText + "が選択されました");
             break;
 
             default:
@@ -88,8 +87,6 @@ public class EchoApplication {
                 default:
                 break;
             } 
-               
-
         }
         return new TextMessage(z);
     }
