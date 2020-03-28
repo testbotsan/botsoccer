@@ -23,6 +23,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Random;
 
+import javax.naming.Context;
+
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
