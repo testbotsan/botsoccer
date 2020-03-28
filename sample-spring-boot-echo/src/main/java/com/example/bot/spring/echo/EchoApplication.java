@@ -55,8 +55,9 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
+        
         User = originalMessageText;
-    
+        String x;
         switch(originalMessageText){
 
             case "ランダム":
@@ -67,7 +68,6 @@ public class EchoApplication {
             break;
 
             default:
-            String x;
             x = null;
             break;
         }
@@ -99,10 +99,7 @@ public class EchoApplication {
             genre = "ルール別";
 
         }
-
-        Message msg = new Message();
-        msg.setMessage(genre);
-        return new TextMessage(msg);
+        return new TextMessage(genre + "");
 
     }
 
@@ -121,9 +118,8 @@ public class EchoApplication {
             quiz = "韓国";
             break;
         }
-        Message msg = new Message();
-        msg.setMessage(quiz);
-        return new TextMessage(msg);
+     
+        return new TextMessage(quiz + "");
     }
 
     public Message Awnser(){
@@ -148,8 +144,7 @@ public class EchoApplication {
             }
             break;
         }
-        Message msg = new Message();
-        msg.setMessage(q_STR);
-        return new TextMessage(msg);
+       
+        return new TextMessage(q_STR + "");
     }
 }
