@@ -34,6 +34,48 @@ import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
+import com.linecorp.bot.client.LineBlobClient;
+import com.linecorp.bot.client.LineMessagingClient;
+import com.linecorp.bot.model.action.DatetimePickerAction;
+import com.linecorp.bot.model.action.MessageAction;
+import com.linecorp.bot.model.action.PostbackAction;
+import com.linecorp.bot.model.action.URIAction;
+import com.linecorp.bot.model.event.BeaconEvent;
+import com.linecorp.bot.model.event.FollowEvent;
+import com.linecorp.bot.model.event.JoinEvent;
+import com.linecorp.bot.model.event.MemberJoinedEvent;
+import com.linecorp.bot.model.event.MemberLeftEvent;
+import com.linecorp.bot.model.event.PostbackEvent;
+import com.linecorp.bot.model.event.UnfollowEvent;
+import com.linecorp.bot.model.event.message.AudioMessageContent;
+import com.linecorp.bot.model.event.message.ContentProvider;
+import com.linecorp.bot.model.event.message.FileMessageContent;
+import com.linecorp.bot.model.event.message.ImageMessageContent;
+import com.linecorp.bot.model.event.message.LocationMessageContent;
+import com.linecorp.bot.model.event.message.StickerMessageContent;
+import com.linecorp.bot.model.event.message.VideoMessageContent;
+import com.linecorp.bot.model.event.source.GroupSource;
+import com.linecorp.bot.model.event.source.RoomSource;
+import com.linecorp.bot.model.event.source.Source;
+import com.linecorp.bot.model.message.AudioMessage;
+import com.linecorp.bot.model.message.ImageMessage;
+import com.linecorp.bot.model.message.ImagemapMessage;
+import com.linecorp.bot.model.message.LocationMessage;
+import com.linecorp.bot.model.message.StickerMessage;
+import com.linecorp.bot.model.message.TemplateMessage;
+import com.linecorp.bot.model.message.VideoMessage;
+import com.linecorp.bot.model.message.imagemap.ImagemapArea;
+import com.linecorp.bot.model.message.imagemap.ImagemapBaseSize;
+import com.linecorp.bot.model.message.imagemap.ImagemapExternalLink;
+import com.linecorp.bot.model.message.imagemap.ImagemapVideo;
+import com.linecorp.bot.model.message.imagemap.MessageImagemapAction;
+import com.linecorp.bot.model.message.imagemap.URIImagemapAction;
+import com.linecorp.bot.model.message.template.ButtonsTemplate;
+import com.linecorp.bot.model.message.template.CarouselColumn;
+import com.linecorp.bot.model.message.template.CarouselTemplate;
+import com.linecorp.bot.model.message.template.ConfirmTemplate;
+import com.linecorp.bot.model.message.template.ImageCarouselColumn;
+import com.linecorp.bot.model.message.template.ImageCarouselTemplate;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -60,7 +102,7 @@ public class EchoApplication {
             case "ランダム":
             case "国別":
             case "ルール別":
-            Quiz();
+            Quiz( event.getMessage().getText());
             break;
 
             default:
@@ -85,7 +127,7 @@ public class EchoApplication {
 
         switch(randomValue){
             case 1:
-                this.replyMessage(replyToken,"現在の日本のサッカー代表の順位は？");
+                this.replyText(replyToken,"現在のサッカー日本代表の世界ランキングは？");
             if(awnser.equals("28位")){
                 return new TextMessage("正解");
             }else{
@@ -94,7 +136,7 @@ public class EchoApplication {
             break;
 
             case 2:
-            this.replyMessage(replyToken,"18歳という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
+                this.replyText(replyToken,"18歳という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
             if(awnser.equals("久保建英")){
                 return new TextMessage("正解");
             }else{
