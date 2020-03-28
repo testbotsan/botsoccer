@@ -77,10 +77,11 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-    public Message QUiz(){
+    public Message QUiz(MessageEvent<TextMessageContent> event){
         Random random = new Random();
         int randomValue = random.nextInt(1);
-        String awnser = Context.text();
+        String awnser = event.getMessage().getText();
+
         switch(randomValue){
             case 1:
                 return new TextMessage("現在の日本代表のランキングは？");
