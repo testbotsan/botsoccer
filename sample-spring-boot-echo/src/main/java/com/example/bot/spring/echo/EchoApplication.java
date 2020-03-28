@@ -63,22 +63,6 @@ public class EchoApplication {
         
         User = originalMessageText;
 
-        while(ch){
-
-            if(ge == true){
-                Genre();
-                ge = false;         
-            }else if(qu == true){
-                Quiz();
-                qu = false;
-            }else if(an == true){
-                Awnser();
-                an = false;
-            }
-
-        }
-        
-        
         return null;
     }
     @EventMapping
