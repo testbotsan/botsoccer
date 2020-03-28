@@ -68,7 +68,7 @@ public class EchoApplication {
         }else{
             switch(x){
                 case "ランダム" :
-                Random random = new Random(0);
+                Random random = new Random();
                 randomValue = random.nextInt(1);
                 switch(randomValue){
                     case 1:
