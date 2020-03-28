@@ -74,6 +74,7 @@ public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
     int randomValue;
+    String User;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -82,12 +83,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-
-        String x ;
-        String y ;
-        String z ;
-        
-        boolean ch = true;
+        User = originalMessageText;
         switch(originalMessageText){
 
             case "ランダム":
@@ -130,7 +126,7 @@ public class EchoApplication {
 
     public Message Awnser(){
 
-        String Awnser = event.getMessage().getText();
+        String Awnser = User;
 
         switch(randomValue){
             case 0 :
