@@ -82,13 +82,16 @@ public class EchoApplication {
                 rset1 = rset.getString(1);
                 rset2 = rset.getString(2);
             }
-            return new TextMessage(rset1 + "\t" + rset2);
+            
             // 結果セットをクローズ
             rset.close();
             // ステートメントをクローズ
             stmt.close();
             // 接続をクローズ
             conn.close();
+
+            return new TextMessage(rset1 + "\t" + rset2);
+            
             }catch(Exception exception){
                 return new TextMessage("予期せぬエラー");
             }
