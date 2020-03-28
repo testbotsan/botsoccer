@@ -84,7 +84,7 @@ public class EchoApplication {
             if(awnser.equals("28位")){
                 return new TextMessage("正解");
             }else{
-                return new TextMessage("不正解")
+                return new TextMessage("不正解");
             }
             break;
 
