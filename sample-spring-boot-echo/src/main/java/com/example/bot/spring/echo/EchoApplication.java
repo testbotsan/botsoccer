@@ -82,7 +82,7 @@ public class EchoApplication {
                 rset1 = rset.getString(1);
                 rset2 = rset.getString(2);
             }
-            return new TextMessage(rset1 + "\t" + rest2);
+            return new TextMessage(rset1 + "\t" + rset2);
             // 結果セットをクローズ
             rset.close();
             // ステートメントをクローズ
@@ -94,8 +94,7 @@ public class EchoApplication {
             }
         }
          return new TextMessage("OK");
-    }
-    
+    }  
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
