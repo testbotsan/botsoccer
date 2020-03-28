@@ -45,17 +45,18 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
 
-        String x = "first";
-        String y = "seconed";
-        String z = "aaa";
-        int randomValue = 0;
+        String x ;
+        String y ;
+        String z ;
+        
+        boolean ch = true;
         switch(originalMessageText){
 
             case "ランダム":
+            QUiz();
             case "国別":
             case "ルール別":
-            new TextMessage( originalMessageText + "が選択されました");
-            x = "1";
+
             break;
 
             default:
@@ -65,31 +66,36 @@ public class EchoApplication {
         
         if(x == null){
             return new TextMessage("ランダム、国別、ルール別のいずれかを選択してください");
-        }else{
-            if(originalMessageText.equals("ランダム")){
-                Random random = new Random();
-                randomValue = random.nextInt(10);
-                switch(1){
-                    case 1:
-                    new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
-                    y = event.getMessage().getText();
-                       if(y.equals("コロンビア")){
-                            z = "正解";
-                        }else{
-                            z = "残念";
-                        }
-                    break;
-
-                    default:
-                    z = "om";
-                    break;
-                }
-            }
         }
-        new TextMessage(z);
+        return null;
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
+    }
+
+    public Message QUiz(){
+        Random random = new Random();
+        int randomValue = random.nextInt(1);
+        String awnser = event.getMessage().getText();
+        switch(randomValue){
+            case 1:
+            new MessageText("現在世界における日本のサッカーランキングは何位でしょう？");
+            if(awnser.equals("28位")){
+                return new TextMessage("正解");
+            }else{
+                return new TextMessage("不正解")
+            }
+            break;
+
+            case 2:
+            new MessageText("18祭という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
+            if(awnser.equals("久保建英")){
+                return new TextMessage("正解");
+            }else{
+                return new TextMessage("不正解")
+            }
+            break;
+        }
     }
 }
