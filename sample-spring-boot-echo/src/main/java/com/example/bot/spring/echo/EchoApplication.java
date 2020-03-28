@@ -47,6 +47,7 @@ public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
     int randomValue;
+    boolean ch;
     String User;
     
     public static void main(String[] args) {
@@ -57,9 +58,9 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        
-        
-
+        if(ch == true){
+            Genre();
+        }
         return null;
     }
     @EventMapping
@@ -69,6 +70,7 @@ public class EchoApplication {
 
     public Message Genre(){
 
+        ch = false;
         String genre = "first";
 
         if(User.equals("ランダム")){
@@ -132,7 +134,7 @@ public class EchoApplication {
             }
             break;
         }
-       Genre();
+        ch = true;
         return new TextMessage(q_STR + "");
     }
 }
