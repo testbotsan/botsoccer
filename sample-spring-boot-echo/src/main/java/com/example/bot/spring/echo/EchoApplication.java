@@ -28,6 +28,7 @@ import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.TextMessage;
+import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
@@ -80,8 +81,7 @@ public class EchoApplication {
         String awnser = Context.text();
         switch(randomValue){
             case 1:
-            BotApiResponse response = 
-            lineMessagingClient.PushMessage("現在世界における日本のサッカーランキングは何位でしょう？");
+                return new TextMessage("現在の日本代表のランキングは？");
             if(awnser.equals("28位")){
                 return new TextMessage("正解");
             }else{
@@ -90,7 +90,7 @@ public class EchoApplication {
             break;
 
             case 2:
-            lineMessagingClient.PushMessage("18祭という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
+                return new TextMessage("18祭という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
             if(awnser.equals("久保建英")){
                 return new TextMessage("正解");
             }else{
