@@ -84,6 +84,7 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         User = originalMessageText;
+        String x;
         switch(originalMessageText){
 
             case "ランダム":
