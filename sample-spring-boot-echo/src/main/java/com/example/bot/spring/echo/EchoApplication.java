@@ -24,7 +24,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Random;
 
 import javax.naming.Context;
-
+import com.linecorp.bot.client.MessageContentResponse;
+import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
@@ -39,6 +40,7 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
+    String[] User_ans;
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
@@ -56,10 +58,9 @@ public class EchoApplication {
         switch(originalMessageText){
 
             case "ランダム":
-            QUiz();
             case "国別":
             case "ルール別":
-
+            Quiz();
             break;
 
             default:
@@ -70,21 +71,21 @@ public class EchoApplication {
         if(x == null){
             return new TextMessage("ランダム、国別、ルール別のいずれかを選択してください");
         }
-        return null;
+        return new TextMessage(originalMessageText + "からクイズを出題します");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
     }
 
-    public Message QUiz(MessageEvent<TextMessageContent> event){
+    public Message Quiz(String STR){
         Random random = new Random();
         int randomValue = random.nextInt(1);
-        String awnser = event.getMessage().getText();
+        String awnser = STR;
 
         switch(randomValue){
             case 1:
-                return new TextMessage("現在の日本代表のランキングは？");
+                this.replyMessage(replyToken,"現在の日本のサッカー代表の順位は？");
             if(awnser.equals("28位")){
                 return new TextMessage("正解");
             }else{
@@ -93,11 +94,13 @@ public class EchoApplication {
             break;
 
             case 2:
-                return new TextMessage("18祭という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
+            this.replyMessage(replyToken,"18歳という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
             if(awnser.equals("久保建英")){
                 return new TextMessage("正解");
             }else{
                 return new TextMessage("不正解");
+                this.reply(replyToken,
+                new TextMessage("さっすがー！")
             }
             break;
         }
