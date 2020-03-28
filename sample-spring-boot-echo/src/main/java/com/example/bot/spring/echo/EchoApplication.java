@@ -66,14 +66,14 @@ public class EchoApplication {
         if(x == null){
             return new TextMessage("ランダム、国別、ルール別のいずれかを選択してください");
         }else{
-            if(originalMessageText == "ランダム"){
+            if(originalMessageText.equals("ランダム")){
                 Random random = new Random();
                 randomValue = random.nextInt(1);
                 switch(1){
                     case 1:
                     new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
                     y = event.getMessage().getText();
-                        if(y == "コロンビア"){
+                       if(y.equals("コロンビア")){
                             z = "正解";
                         }else{
                             z = "残念";
