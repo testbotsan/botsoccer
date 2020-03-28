@@ -49,6 +49,7 @@ public class EchoApplication {
     int randomValue;
     boolean ch;
     String User;
+    String text;
     
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
@@ -58,6 +59,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
+        text = originalMessageText;
         if(ch == true){
             Genre();
         }
@@ -71,7 +73,8 @@ public class EchoApplication {
     public Message Genre(){
 
         ch = false;
-        String genre = "first";
+        user = text;
+        String genre ="初期";
 
         if(User.equals("ランダム")){
 
@@ -114,7 +117,7 @@ public class EchoApplication {
 
     public Message Awnser(){
 
-        String Awnser = User;
+        String Awnser = text;
         String q_STR = "first";
 
         switch(randomValue){
