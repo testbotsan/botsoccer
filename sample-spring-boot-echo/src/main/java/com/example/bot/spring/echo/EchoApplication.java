@@ -66,7 +66,7 @@ public class EchoApplication {
         if(x == null){
             return new TextMessage("「ランダム」「ルール別」「国別」のいずれかを選択してください");
         }else{
-            if(originalMessage == "ランダム"){
+            if(originalMessageText == "ランダム"){
                 Random random = new Random();
                 randomValue = random.nextInt(1);
                 switch(randomValue){
