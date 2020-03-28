@@ -86,7 +86,7 @@ public class EchoApplication {
                 }
             }
         }
-        return new TextMessage(z);
+        new TextMessage(z);
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
