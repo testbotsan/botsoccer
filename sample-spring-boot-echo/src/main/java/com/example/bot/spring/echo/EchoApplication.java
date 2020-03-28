@@ -68,22 +68,25 @@ public class EchoApplication {
         }else{
             switch(x){
                 case "ランダム" :
-                Random random = new Random(1);
-                randomValue = random.nextInt(29);
+                Random random = new Random(0);
+                randomValue = random.nextInt(1);
                 switch(randomValue){
                     case 1:
                     new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
                     y = event.getMessage().getText();
-                        if(y.equals("コロンビア")){
+                        if(y == "コロンビア"){
                             z = "正解";
                         }else{
                             z = "残念";
                         }
                     break;
+
+                    default:
+                    break;
                 }
             }
-            return new TextMessage(z);
         }
+        return new TextMessage(z);
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
