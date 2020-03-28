@@ -49,6 +49,8 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
 
         String x;
+        String rset1;
+        String rset2;
         int randomValue;
     
         switch(originalMessageText){
@@ -77,8 +79,10 @@ public class EchoApplication {
             // 問合せ結果の表示
             while ( rset.next() ) {
               // 列番号による指定
-                return new TextMessage(rset.getString(1) + "\t" + rset.getString(2));
+                rset1 = rset.getString(1);
+                rset2 = rset.getString(2);
             }
+            return new TextMessage(rset1 + "\t" + rest2);
             // 結果セットをクローズ
             rset.close();
             // ステートメントをクローズ
