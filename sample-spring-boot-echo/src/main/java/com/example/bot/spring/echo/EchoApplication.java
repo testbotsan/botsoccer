@@ -46,8 +46,7 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
 
         String x;
-        String rset1 = null;
-        String rset2 = null;
+        String y;
         int randomValue;
     
         switch(originalMessageText){
@@ -55,7 +54,7 @@ public class EchoApplication {
             case "ランダム":
             case "国別":
             case "ルール別":
-            TextMessage(originalMessageText + "からクイズを出題します");
+            return new TextMessage(originalMessageText + "からクイズを出題します");
             x = originalMessageText;
             break;
 
@@ -73,7 +72,15 @@ public class EchoApplication {
                 randomValue = random.nextInt(29);
                 switch(randomValue){
                     case 1:
-                    TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
+                    return new TextMessage("2018年ロシアワールドカップで初戦に戦った代表国は？");
+                    y = event.getMessage().getText();
+                        if(y.equals("コロンビア")){
+                            return new TextMessage("正解");
+                        }else{
+                            return new TextMessage("残念");
+                        }
+                        break;
+                    
                 }
             }
         }
