@@ -77,10 +77,11 @@ public class EchoApplication {
     public Message QUiz(){
         Random random = new Random();
         int randomValue = random.nextInt(1);
-        String awnser = event.getMessage().getText();
+        String awnser = Context.text();
         switch(randomValue){
             case 1:
-            new MessageText("現在世界における日本のサッカーランキングは何位でしょう？");
+            BotApiResponse response = 
+            lineMessagingClient.PushMessage("現在世界における日本のサッカーランキングは何位でしょう？");
             if(awnser.equals("28位")){
                 return new TextMessage("正解");
             }else{
@@ -89,7 +90,7 @@ public class EchoApplication {
             break;
 
             case 2:
-            new MessageText("18祭という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
+            lineMessagingClient.PushMessage("18祭という若さでスペインの強豪レアル・マドリーに移籍した人物は？");
             if(awnser.equals("久保建英")){
                 return new TextMessage("正解");
             }else{
