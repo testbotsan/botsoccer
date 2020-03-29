@@ -47,7 +47,7 @@ public class EchoApplication {
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
     int randomValue;
-    boolean ch;
+    boolean ch = true;
     String User;
     String text;
     
