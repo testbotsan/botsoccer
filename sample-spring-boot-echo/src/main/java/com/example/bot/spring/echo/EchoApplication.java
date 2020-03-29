@@ -126,14 +126,14 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
        
-        String s = null;
+        String s = "aaa";
 
-        if(s == null){
+        if(s.equals("aaa")){
             return new TextMessage("こんにちは");
             s = "as";
         }else{
             return new TextMessage("こんばんは");
-            s = null;
+            s = "aaa";
         }
     }
     @EventMapping
