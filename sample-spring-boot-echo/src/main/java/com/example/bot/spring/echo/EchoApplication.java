@@ -21,6 +21,30 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import static java.util.Collections.singletonList;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UncheckedIOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.ExecutionException;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.google.common.io.ByteStreams;
+
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Random;
@@ -97,18 +121,18 @@ public class EchoApplication {
     }
 
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,String replyToken) {
+    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         
         switch(originalMessageText){
             case "ルール":
-            this.reply(replyToken,Arrays.asList(
+            reply(replyToken,Arrays.asList(
                                             new TextMessage("ルールから問題を出題します"),
                                             new TextMessage("なむなむ")));
                                             break; 
             case "ランダム" :
-            this.reply(replyToken,Arrays.asList(
+            reply(replyToken,Arrays.asList(
                                             new TextMessage("ルールから問題を出題します"),
                                             new TextMessage("なむなむ")));
                                             break;                                                           
