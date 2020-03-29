@@ -78,22 +78,22 @@ public class EchoApplication {
 
         if(User.equals("ランダム")){
 
-            genre = "ランダム";
+            genre = "ランダムから問題を出題します";
 
         }else if(User.equals("国別")){
 
-            genre = "国別";
+            genre = "国別から問題を出題します";
 
         }else if(User.equals("ルール別")){
 
-            genre = "ルール別";
+            genre = "ルール別から問題を出題します";
 
         }else{
 
-            return "「ランダム」「国別」「ルール別」から選んで発言してください";
+            genre = "「ランダム」「国別」「ルール別」から選んで発言してください";
         }
         Quiz();
-        return genre + "から問題を出題します";
+        return genre;
     }
 
     public Message Quiz(){
