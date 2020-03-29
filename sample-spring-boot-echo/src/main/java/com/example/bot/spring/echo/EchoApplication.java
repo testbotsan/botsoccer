@@ -34,6 +34,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Consumer;
@@ -112,7 +113,8 @@ public class EchoApplication {
 
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
-    String s = "aaa";
+    Boolean ch = true;
+    int randomValue;
     
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
@@ -122,15 +124,22 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-       
-        
+        if(ch){
+            switch(originalMessageText){
+                case "ランダム":
+                case "国別":
+                case "ルール別":
+                Random random = new Random();
+                randomValue = random.nextInt(100);
+                return new TextMessage(originalMessageText + "から問題を出題します","as");
+                break;
 
-        if(s.equals("aaa")){
-            s = "as";
-            return new TextMessage("こんにちは");
+                default:
+                return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
+                break;
+            }
+            return new TextMessage("OK");
         }
-            s = "aaa";
-            return new TextMessage("こんばんは");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
