@@ -99,6 +99,7 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 import lombok.NonNull;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
+import sun.security.krb5.internal.ReplayCache;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -124,22 +125,21 @@ public class EchoApplication {
     @EventMapping
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
-        final String originalMessageText = event.getMessage().getText();
-        handleTextContent(event.getReplyToken(), event, message);
-        String replyToken = event.getReplyToken();
+        final String originalMessageText = event.getMessage().getText();/*
         switch(originalMessageText){
             case "ルール":
-            reply(replyToken,Arrays.asList(
+            reply(event.getReplyToken(),Arrays.asList(
                                             new TextMessage("ルールから問題を出題します"),
                                             new TextMessage("なむなむ")));
                                             break; 
             case "ランダム" :
-            reply(replyToken,Arrays.asList(
+            reply(event.getReplyToken(),Arrays.asList(
                                             new TextMessage("ルールから問題を出題します"),
                                             new TextMessage("なむなむ")));
                                             break; 
                                                                                                                             
-        }
+        }*/
+        new TextMessage("こんにちは");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
