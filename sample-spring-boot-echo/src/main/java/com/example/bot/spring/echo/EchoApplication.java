@@ -43,7 +43,6 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.google.common.io.ByteStreams;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -135,7 +134,8 @@ public class EchoApplication {
             reply(replyToken,Arrays.asList(
                                             new TextMessage("ルールから問題を出題します"),
                                             new TextMessage("なむなむ")));
-                                            break;                                                           
+                                            break; 
+                                                                                                  
         }
     }
     @EventMapping
