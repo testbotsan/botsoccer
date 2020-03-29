@@ -56,14 +56,14 @@ public class EchoApplication {
     }
 
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,String ge) {
+    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        text = originalMessageText;
-        if(ch == true){
-            Genre();
+        switch(originalMessageText){
+            case "ルール":
+            this.ReplyMessage(new TextMessage("ルール"));
         }
-        return new TextMessage(ge + "!");
+        return new TextMessage();
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
