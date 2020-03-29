@@ -99,7 +99,6 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 import lombok.NonNull;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
-import sun.security.krb5.internal.ReplayCache;
 
 @SpringBootApplication
 @LineMessageHandler
