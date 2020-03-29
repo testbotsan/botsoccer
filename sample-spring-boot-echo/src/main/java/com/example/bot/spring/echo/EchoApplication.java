@@ -140,6 +140,7 @@ public class EchoApplication {
                                                                                                                             
         }*/
         new TextMessage("こんにちは");
+        return new TextMessage("こんばんは");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
