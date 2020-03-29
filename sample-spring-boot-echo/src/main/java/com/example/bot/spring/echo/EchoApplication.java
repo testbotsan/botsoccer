@@ -136,8 +136,7 @@ public class EchoApplication {
                     if(randomValue == 1){
                         que = "a";
                     }
-                return new TextMessage(originalMessageText,
-                       new TextMessage("aaa"));
+                return Arrays.asList(originalMessageText,que);
 
                 default: 
                 return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
