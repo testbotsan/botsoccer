@@ -63,7 +63,7 @@ public class EchoApplication {
         if(ch == true){
             Genre();
         }
-        return new TextMessage(ge + "");
+        return new TextMessage(ge + "!");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
