@@ -133,17 +133,17 @@ public class EchoApplication {
                 Random random = new Random(1);
                 randomValue = random.nextInt(100);
                 ch = false;
-                    if(random == 1){
-                        q = "a";
+                    if(randomValue == 1){
+                        que = "a";
                     }
-                return Arrays.asList(new TextMessage(originalMessageText + "から問題を出します!"),
-                                     new TextMessage(que));
-
+                return new TextMessage(originalMessageText,
+                       new TextMessage("aaa"));
 
                 default: 
                 return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
             }
         }
+        ch = true;
         return new TextMessage("as");
     }
     @EventMapping
