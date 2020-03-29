@@ -129,12 +129,14 @@ public class EchoApplication {
         String s = "aaa";
 
         if(s.equals("aaa")){
-            return new TextMessage("こんにちは");
             s = "as";
+            return new TextMessage("こんにちは");
+            
         }else{
-            return new TextMessage("こんばんは");
             s = "aaa";
+            return new TextMessage("こんばんは");
         }
+        return null;
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
