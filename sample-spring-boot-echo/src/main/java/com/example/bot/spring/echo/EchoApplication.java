@@ -56,14 +56,14 @@ public class EchoApplication {
     }
 
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,String ge) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         text = originalMessageText;
         if(ch == true){
             Genre();
         }
-        return null;
+        return new TextMessage(ge + "");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
@@ -90,11 +90,10 @@ public class EchoApplication {
 
         }else{
 
-            return new TextMessage("「ランダム」「国別」「ルール別」から選んで発言してください");
-
+            return "「ランダム」「国別」「ルール別」から選んで発言してください";
         }
         Quiz();
-        return new TextMessage(genre + "からクイズを出題します");
+        return genre + "から問題を出題します";
     }
 
     public Message Quiz(){
