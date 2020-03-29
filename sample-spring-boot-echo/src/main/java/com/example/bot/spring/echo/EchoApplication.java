@@ -97,7 +97,7 @@ public class EchoApplication {
     }
 
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event,String replyToken) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         
