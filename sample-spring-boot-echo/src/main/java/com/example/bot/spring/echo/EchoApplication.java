@@ -124,21 +124,27 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
+        String que = "a";
         if(ch){
             switch(originalMessageText){
                 case "ランダム":
                 case "国別":
                 case "ルール別":
-                Random random = new Random();
+                Random random = new Random(1);
                 randomValue = random.nextInt(100);
-                return new TextMessage(originalMessageText + "から問題を出題します");
+                ch = false;
+                    if(random == 1){
+                        q = "a";
+                    }
+                return Arrays.asList(new TextMessage(originalMessageText + "から問題を出します!"),
+                                     new TextMessage(que));
 
 
-                default:
+                default: 
                 return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
             }
-            return new TextMessage("OK");
         }
+        return new TextMessage("as");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
