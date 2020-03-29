@@ -110,6 +110,7 @@ public class KitchenSinkController {
     public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
         TextMessageContent message = event.getMessage();
         handleTextContent(event.getReplyToken(), event, message);
+        
     }
 
     @EventMapping
@@ -126,6 +127,7 @@ public class KitchenSinkController {
                 locationMessage.getLatitude(),
                 locationMessage.getLongitude()
         ));
+    
     }
 
     @EventMapping

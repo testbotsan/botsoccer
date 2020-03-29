@@ -124,23 +124,17 @@ public class EchoApplication {
     @EventMapping
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
-        final String originalMessageText = event.getMessage().getText();/*
-        switch(originalMessageText){
-            case "ルール":
-            reply(event.getReplyToken(),Arrays.asList(
-                                            new TextMessage("ルールから問題を出題します"),
-                                            new TextMessage("なむなむ")));
-                                            break; 
-            case "ランダム" :
-            reply(event.getReplyToken(),Arrays.asList(
-                                            new TextMessage("ルールから問題を出題します"),
-                                            new TextMessage("なむなむ")));
-                                            break; 
-                                                                                                                            
-        }*/
-        new TextMessage("こんにちは");
-        return new TextMessage("こんばんは");
-        return new TextMessage("こん");
+        final String originalMessageText = event.getMessage().getText();
+       
+        String s = null;
+
+        if(s == null){
+            return new TextMessage("こんにちは");
+            s = "as";
+        }else{
+            return new TextMessage("こんばんは");
+            s = null;
+        }
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
