@@ -131,12 +131,9 @@ public class EchoApplication {
         if(s.equals("aaa")){
             s = "as";
             return new TextMessage("こんにちは");
-            
-        }else{
+        }
             s = "aaa";
             return new TextMessage("こんばんは");
-        }
-        return null;
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
