@@ -112,10 +112,7 @@ public class EchoApplication {
 
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
-    int randomValue;
-    boolean ch = true;
-    String User;
-    String text;
+    String s = "aaa";
     
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
@@ -126,7 +123,7 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
        
-        String s = "aaa";
+        
 
         if(s.equals("aaa")){
             s = "as";
