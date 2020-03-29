@@ -69,7 +69,7 @@ public class EchoApplication {
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
     }
-
+    /*
     public String Genre(){
 
         ch = false;
@@ -138,5 +138,5 @@ public class EchoApplication {
         }
         ch = true;
         return q_STR;
-    }
+    }*/
 }
