@@ -132,11 +132,10 @@ public class EchoApplication {
                 Random random = new Random();
                 randomValue = random.nextInt(100);
                 return new TextMessage(originalMessageText + "から問題を出題します");
-                break;
+
 
                 default:
                 return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
-                break;
             }
             return new TextMessage("OK");
         }
