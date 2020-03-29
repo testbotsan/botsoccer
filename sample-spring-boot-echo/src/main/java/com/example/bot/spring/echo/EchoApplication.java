@@ -96,7 +96,7 @@ public class EchoApplication {
         return genre;
     }
 
-    public Message Quiz(){
+    public String Quiz(){
         Random random = new Random();
         randomValue = random.nextInt(1);
         String quiz = "first";
@@ -111,10 +111,10 @@ public class EchoApplication {
             break;
         }
         Awnser();
-        return new TextMessage(quiz + "");
+        return quiz;
     }
 
-    public Message Awnser(){
+    public String Awnser(){
 
         String Awnser = text;
         String q_STR = "first";
@@ -137,6 +137,6 @@ public class EchoApplication {
             break;
         }
         ch = true;
-        return new TextMessage(q_STR + "");
+        return q_STR;
     }
 }
