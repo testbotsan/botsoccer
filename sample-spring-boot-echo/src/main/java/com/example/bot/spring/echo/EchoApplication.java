@@ -102,6 +102,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
+        String replyToken = event.getreplyToken();
         switch(originalMessageText){
             case "ルール":
             this.reply(replyToken,Arrays.asList(
