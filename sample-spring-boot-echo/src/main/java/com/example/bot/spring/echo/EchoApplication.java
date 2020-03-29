@@ -73,7 +73,7 @@ public class EchoApplication {
     public Message Genre(){
 
         ch = false;
-        user = text;
+        String user = text;
         String genre ="初期";
 
         if(User.equals("ランダム")){
