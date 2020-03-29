@@ -131,7 +131,7 @@ public class EchoApplication {
                 case "ルール別":
                 Random random = new Random();
                 randomValue = random.nextInt(100);
-                return new TextMessage(originalMessageText + "から問題を出題します","as");
+                return new TextMessage(originalMessageText + "から問題を出題します");
                 break;
 
                 default:
