@@ -70,7 +70,7 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-    public Message Genre(){
+    public String Genre(){
 
         ch = false;
         String user = text;
