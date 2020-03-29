@@ -78,11 +78,9 @@ import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
-
-
-
-
-
+import lombok.NonNull;
+import lombok.Value;
+import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -102,13 +100,18 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        String replyToken = event.getreplyToken();
+        
         switch(originalMessageText){
             case "ルール":
             this.reply(replyToken,Arrays.asList(
                                             new TextMessage("ルールから問題を出題します"),
                                             new TextMessage("なむなむ")));
-                                            break;
+                                            break; 
+            case "ランダム" :
+            this.reply(replyToken,Arrays.asList(
+                                            new TextMessage("ルールから問題を出題します"),
+                                            new TextMessage("なむなむ")));
+                                            break;                                                           
         }
     }
     @EventMapping
