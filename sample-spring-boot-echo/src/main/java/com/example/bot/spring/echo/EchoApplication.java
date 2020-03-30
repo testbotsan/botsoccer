@@ -127,7 +127,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        Random random = new Random();
+        Random random = new Random(1);
         if(ch == true){
             switch(originalMessageText){
                 case "ランダム":
