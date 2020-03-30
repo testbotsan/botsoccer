@@ -282,8 +282,8 @@ public class EchoApplication {
                     case "ルール別":
                     break;*/
             }
-            return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
         }
+        return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
