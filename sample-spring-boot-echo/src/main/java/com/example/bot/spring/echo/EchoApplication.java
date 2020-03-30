@@ -171,6 +171,7 @@ public class EchoApplication {
                         }else{
                             return new TextMessage("不正解");
                         }
+                        break;
                     }
                     break;
 
@@ -182,7 +183,7 @@ public class EchoApplication {
                         }else{
                             return new TextMessage("不正解");
                         }
-
+                        break;
                     }
                     break;
 
@@ -194,6 +195,7 @@ public class EchoApplication {
                         }else{
                             return new TextMessage("不正解");
                         }
+                        break;
                     }
                     break;
             }
