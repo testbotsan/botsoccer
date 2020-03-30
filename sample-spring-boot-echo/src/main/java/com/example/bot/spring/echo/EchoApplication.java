@@ -138,6 +138,9 @@ public class EchoApplication {
                 switch(randomValue){
                     case 0:
                     return new TextMessage("2018年ロシアワールドカップの初戦の相手はどこの国？");
+
+                    default:
+                    break;
                     /*
                     case 1:
                     return new TextMessage("");
