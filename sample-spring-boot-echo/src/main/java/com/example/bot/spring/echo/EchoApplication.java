@@ -157,7 +157,6 @@ public class EchoApplication {
                     default:
                     break;
                 }
-                break;
             }
         return new TextMessage("「ランダム」「国別」「ルール別」からから1つ選んで発言してください");
     }
