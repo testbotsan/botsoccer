@@ -205,7 +205,6 @@ public class EchoApplication {
                             return new TextMessage("不正解");
                         }
                     }
-
                     break;
 
                     case "基本編":
@@ -218,7 +217,7 @@ public class EchoApplication {
                             return new TextMessage("不正解");
                         }
                     }
-
+                    break;
                     if(randomValue == 1){
                         ch = true;
                         if(originalMessageText.equals("イエローカード")){
@@ -227,6 +226,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「イエローカードです」");
                         }
                     }
+                    break;
                     if(randomValue == 2){
                         ch = true;
                         String text = originalMessageText.toUpperCase();
@@ -236,6 +236,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「VAR」です");
                         }
                     }
+                    break;
                     if(randomValue == 3){
                         ch = true;
                         if(originalMessageText.equals("90分")){
@@ -244,6 +245,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「90分」です");
                         }
                     }
+                    break;
                     if(randomValue == 4){
                         ch = true;
                         if(originalMessageText.equals("3人")){
@@ -252,6 +254,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「3人」です");
                         }   
                     }
+                    break;
                     if(randomValue == 5){
                         ch = true;
                         if(originalMessageText.equals("セットプレー")){
@@ -260,6 +263,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「セットプレー」です");
                         }   
                     } 
+                    break;
                     if(randomValue == 6){
                         ch = true;
                         if(originalMessageText.equals("アディショナルタイム")){
@@ -268,6 +272,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「セットプレー」です");
                         }   
                     } 
+                    break;
                     if(randomValue == 7){
                         ch = true;
                         if(originalMessageText.equals("フリーキック")){
