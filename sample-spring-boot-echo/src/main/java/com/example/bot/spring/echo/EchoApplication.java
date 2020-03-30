@@ -155,6 +155,7 @@ public class EchoApplication {
                             }else{
                                 return new TextMessage("不正解!");
                             }
+
                             default:
                             break;
                         }
@@ -163,7 +164,7 @@ public class EchoApplication {
                         break;
                 }
             }
-        return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
+        return new TextMessage("「ランダム」「国別」「ルール別」からから1つ選んで発言してください");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
