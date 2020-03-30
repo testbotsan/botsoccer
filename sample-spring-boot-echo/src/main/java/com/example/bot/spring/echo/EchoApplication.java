@@ -129,33 +129,34 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         Random random = new Random(0);
     
-            br: switch(originalMessageText){
+         switch(originalMessageText){
                 case "ランダム":
                     randomValue = random.nextInt(15);
                     Code = originalMessageText;
                     if(randomValue == 0){
                         ch = false;
-                        return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
+                        Qur = "2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？";
                     }
-                    break br;
+                    break;
                 case "基本編":
                     randomValue = random.nextInt(7);
                     Code = originalMessageText;
                     if(randomValue == 0){
                         ch = false;
-                        return new TextMessage("サッカーは１チーム何人必要？ \n ※「～人」と答えてください");
+                        Qur = "サッカーは１チーム何人必要？ \n ※「～人」と答えてください";
                     }
-                    break br;
+                    break;
                 case "選手編":
                     randomValue = random.nextInt(7);
                     Code = originalMessageText;
                 if(randomValue == 0){
                         ch = false;
-                        return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
+                        Qur = "18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？";
                     }
-                    break br;
+                    break ;
 
                 default:
+                Qur = "「ランダム」「選手編」「基本編」から1つ選んで発言してください";
                 break;
             }
 
@@ -197,7 +198,7 @@ public class EchoApplication {
                     break;
             }
         }
-        return new TextMessage("「ランダム」「選手」「ルール」から1つ選んで発言してください");
+        return new TextMessage(Qur);
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
