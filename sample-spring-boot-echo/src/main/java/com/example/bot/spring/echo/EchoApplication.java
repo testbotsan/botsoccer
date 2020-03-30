@@ -132,6 +132,7 @@ public class EchoApplication {
             switch(originalMessageText){
                 case "ランダム":
                     randomValue = random.nextInt(15);
+                    Code = originalMessageText;
                     if(randomValue == 0){
                         ch = false;
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
@@ -140,6 +141,7 @@ public class EchoApplication {
 
                 case "ルール":
                     randomValue = random.nextInt(15);
+                    Code = originalMessageText;
                     if(randomValue == 0){
                         ch = false;
                         return new TextMessage("サッカーは１チーム何人必要？");
@@ -148,19 +150,19 @@ public class EchoApplication {
 
                 case "選手":
                 randomValue = random.nextInt(15);
+                Code = originalMessageText;
                 if(randomValue == 0){
                         ch = false;
                         return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
                     }   
                     break;
-
             }
             if(ch == false){
-                switch(originalMessageText){
+                switch(Code){
                     case "ランダム":
                        if(randomValue == 0){
                             ch = true;
-                            if(Awn.equals("サウジアラビア")){
+                            if(originalMessageText.equals("サウジアラビア")){
                                 return new TextMessage("正解");
                             }else{
                                 return new TextMessage("不正解");
