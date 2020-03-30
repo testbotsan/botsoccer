@@ -142,6 +142,8 @@ public class EchoApplication {
                     default:
                     break;
             }
+            default:
+            break;
         }
             if(ch == false){
                 Awn = originalMessageText;
