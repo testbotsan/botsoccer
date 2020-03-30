@@ -187,7 +187,7 @@ public class EchoApplication {
                     randomValue = random.nextInt(1);
                         if(randomValue == 0){
                           
-                            return new TextMessage("レアルマドリードへ移籍した日本人選手は？");
+                            return new TextMessage("レアルマドリードへ移籍した日本人選手は？" + randomValue);
                         }
                         if(randomValue == 1){
                             return new TextMessage("鹿児島出身のJリーガであり「コロコロPK」で有名な選手は？");
