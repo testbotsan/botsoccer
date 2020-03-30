@@ -144,7 +144,7 @@ public class EchoApplication {
                     }
                     break;
 
-                case "ルール":
+                case "ルール別":
                     randomValue = random.nextInt(9);
                     Code = originalMessageText;
                     if(randomValue == 0){
@@ -201,6 +201,7 @@ public class EchoApplication {
                                 return new TextMessage("不正解");
                             }
                        }
+                       break;
                     case "ルール別":
                        if(randomValue == 0){
                             ch = true;
@@ -267,6 +268,7 @@ public class EchoApplication {
                                 return new TextMessage("不正解! \n 正解は「フリーキック」です");
                         }   
                     } 
+                    break;
                     case "選手":
                     if(randomValue == 0){
                         ch = true;
@@ -276,6 +278,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「11人」です");
                         }
                     }
+                    break;
             }
         }
         return new TextMessage("「ランダム」「国別」「ルール別」から1つ選んで発言してください");
