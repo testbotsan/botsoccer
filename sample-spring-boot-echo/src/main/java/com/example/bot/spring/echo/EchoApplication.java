@@ -115,6 +115,8 @@ public class EchoApplication {
     
     Boolean ch = true;
     int randomValue;
+    String Code = "aaa";
+    String Awn = "aaa";
     
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
@@ -125,24 +127,159 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         String que = "a";
-        if(ch){
+        Random random = new Random(0);
+        randomValue = random.nextInt(15);
+    
             switch(originalMessageText){
                 case "ランダム":
-                case "国別":
-                case "ルール別":
-                Random random = new Random(1);
-                randomValue = random.nextInt(100);
                 ch = false;
-                    if(randomValue == 1){
-                        que = "a";
-                    }
-                return new TextMessage(Arrays.asList(originalMessageText,que));
-                default: 
-                return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
+                Code = originalMessageText;
+                randomValue = random.nextInt(15);
+                switch(randomValue){
+                    case 0:
+                    return new TextMessage("2018年ロシアワールドカップの初戦の相手はどこの国？");
+                    /*
+                    case 1:
+                    return new TextMessage("");
+
+                    case 2:
+                    return new TextMessage("");
+
+                    case 3:
+                    return new TextMessage("");
+
+                    case 4:
+                    return new TextMessage("");
+
+                    case 5:
+                    return new TextMessage("");
+                    
+                    case 6:
+                    return new TextMessage("");
+                    
+                    case 7:
+                    return new TextMessage("");
+                    
+                    case 8:
+                    return new TextMessage("");
+                    
+                    case 9:
+                    return new TextMessage("");
+                    
+                    case 10:
+                    return new TextMessage("");
+                    
+                    case 11:
+                    return new TextMessage("");
+                    
+                    case 12:
+                    return new TextMessage("");
+                    
+                    case 13:
+                    return new TextMessage("");
+                    
+                    case 14:
+                    return new TextMessage("");
+                    
+                }   
+
+                case "国別":
+                ch = false;
+                Code = originalMessageText;
+                randomValue = random.nextInt(9);
+                switch(randomValue){
+                    case 0:
+                    return new TextMessage("");
+
+                    case 1:
+                    return new TextMessage("");
+
+                    case 2:
+                    return new TextMessage("");
+
+                    case 3:
+                    return new TextMessage("");
+
+                    case 4:
+                    return new TextMessage("");
+
+                    case 5:
+                    return new TextMessage("");
+                    
+                    case 6:
+                    return new TextMessage("");
+                    
+                    case 7:
+                    return new TextMessage("");
+                    
+                    case 8:
+                    return new TextMessage("");
+                    
+                    case 9:
+                    return new TextMessage("");
+                }
+
+                case "ルール別":
+                ch = false;
+                Code = originalMessageText;
+                randomValue = random.nextInt(9);
+                switch(randomValue){
+                    case 0:
+                    return new TextMessage("");
+
+                    case 1:
+                    return new TextMessage("");
+
+                    case 2:
+                    return new TextMessage("");
+
+                    case 3:
+                    return new TextMessage("");
+
+                    case 4:
+                    return new TextMessage("");
+
+                    case 5:
+                    return new TextMessage("");
+                    
+                    case 6:
+                    return new TextMessage("");
+                    
+                    case 7:
+                    return new TextMessage("");
+                    
+                    case 8:
+                    return new TextMessage("");
+                    
+                    case 9:
+                    return new TextMessage("");
+                }*/
+                
             }
+            if(ch == false){
+                Awn = originalMessageText;
+                switch(Code){
+                    case "ランダム":
+                        switch(randomValue){
+                            case 0:
+                            ch = true;
+                            if(Awn.equals("コロンビア")){
+                               
+                                return new TextMessage("正解!");
+                            }else{
+
+                                return new TextMessage("不正解!");
+                            }
+                        }
+                    /*
+                    case "国別":
+                    break;
+
+                    case "ルール別":
+                    break;*/
+            }
+            return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
         }
-        ch = true;
-        return new TextMessage("as");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
