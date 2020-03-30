@@ -217,12 +217,14 @@ public class EchoApplication {
                             return new TextMessage("不正解");
                         }
                     }
-                    break;
+                    
                     if(randomValue == 1){
                         ch = true;
                         if(originalMessageText.equals("イエローカード")){
+                            ch = true;
                             return new TextMessage("正解! \n 1試合に2枚のイエローカードを貰うとその試合から退場処分を受けます");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解! \n 正解は「イエローカードです」");
                         }
                     }
@@ -231,53 +233,65 @@ public class EchoApplication {
                         ch = true;
                         String text = originalMessageText.toUpperCase();
                         if(text.equals("VAR")){
+                            ch = true;
                             return new TextMessage("正解! \n 日本のJリーグでは2020年シリーズ全試合にVARの導入が決定しています");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解! \n 正解は「VAR」です");
                         }
                     }
-                    break;
+                    
                     if(randomValue == 3){
                         ch = true;
                         if(originalMessageText.equals("90分")){
+                            ch = true;
                             return new TextMessage("正解! \n サッカーは前半後半合せて90分行われます");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解! \n 正解は「90分」です");
                         }
                     }
-                    break;
+                   
                     if(randomValue == 4){
                         ch = true;
                         if(originalMessageText.equals("3人")){
+                            ch = true;
                             return new TextMessage("正解! \n 前半後半合わせて3人まで可能です");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解! \n 正解は「3人」です");
                         }   
                     }
-                    break;
+                    
                     if(randomValue == 5){
                         ch = true;
                         if(originalMessageText.equals("セットプレー")){
+                            ch = true;
                             return new TextMessage("正解! \n セットプレーには「フリーキック」「コーナーキック」「ペナルティキック」があります");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解! \n 正解は「セットプレー」です");
                         }   
                     } 
-                    break;
+                   
                     if(randomValue == 6){
                         ch = true;
                         if(originalMessageText.equals("アディショナルタイム")){
+                            ch = true;
                             return new TextMessage("正解! \n 大半は前半1～3分,後半3～5分が多いです");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解! \n 正解は「セットプレー」です");
                         }   
                     } 
-                    break;
+                   
                     if(randomValue == 7){
                         ch = true;
                         if(originalMessageText.equals("フリーキック")){
+                            ch = true;
                             return new TextMessage("正解! \n Jリーグでは中村俊介選手がフリーキックの名手として有名です");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解! \n 正解は「フリーキック」です");
                         }   
                     } 
