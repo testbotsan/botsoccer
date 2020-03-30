@@ -146,22 +146,18 @@ public class EchoApplication {
                 Awn = originalMessageText;
                 switch(Code){
                     case "ランダム":
-                        switch(randomValue){
-                            case 0:
-                            ch = true;
-                            if(Awn.equals("コロンビア")){
-                                return new TextMessage("正解!");
+                       if(randomValue == 0){
+
+                            if(Awn.equals("サウジアラビア")){
+                                return new TextMessage("正解");
                             }else{
-                                return new TextMessage("不正解!");
+                                return new TextMessage("不正解");
                             }
-
-                            default:
-                            break;
-                        }
-
+                       }
                     default:
                     break;
                 }
+                break;
             }
         return new TextMessage("「ランダム」「国別」「ルール別」からから1つ選んで発言してください");
     }
