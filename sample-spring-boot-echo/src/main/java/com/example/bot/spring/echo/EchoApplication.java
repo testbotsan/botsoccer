@@ -161,9 +161,10 @@ public class EchoApplication {
         }
 
         if(ch == false){
+            ch = true;
             switch(Qur){
                 case "ランダム":
-                ch = true;
+                
                     if(randomValue == 0){
                         if(originalMessageText.equals("サウジアラビア")){
                             return new TextMessage("正解");
@@ -174,7 +175,7 @@ public class EchoApplication {
                     break;
 
                     case "基本編":
-                    ch = true;
+                   
                     if(randomValue == 0){
                         if(originalMessageText.equals("11人")){
                             return new TextMessage("正解");
@@ -186,7 +187,7 @@ public class EchoApplication {
                     break;
 
                     case "選手編":
-                    ch = true;
+                    
                     if(randomValue == 0){
                         if(originalMessageText.equals("久保建英")){
                             return new TextMessage("正解");
