@@ -153,6 +153,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
                     }
+                break;
             }
         }
 
@@ -187,6 +188,7 @@ public class EchoApplication {
                                 return new TextMessage("不正解!");
                             }
                         }
+                break;
             }
         }
         ch = true;
