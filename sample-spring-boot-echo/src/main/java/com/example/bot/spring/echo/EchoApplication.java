@@ -129,7 +129,7 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         Random random = new Random(0);
     
-            switch(originalMessageText){
+            br: switch(originalMessageText){
                 case "ランダム":
                     randomValue = random.nextInt(15);
                     Code = originalMessageText;
@@ -137,8 +137,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
-                    break;
-
+                    break br;
                 case "基本編":
                     randomValue = random.nextInt(7);
                     Code = originalMessageText;
@@ -146,8 +145,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("サッカーは１チーム何人必要？ \n ※「～人」と答えてください");
                     }
-                    break;
-
+                    break br;
                 case "選手編":
                     randomValue = random.nextInt(7);
                     Code = originalMessageText;
@@ -155,7 +153,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
                     }
-                    break;
+                    break br;
 
                 default:
                 break;
