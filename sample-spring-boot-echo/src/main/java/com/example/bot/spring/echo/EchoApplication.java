@@ -180,9 +180,10 @@ public class EchoApplication {
                     
                     case 14:
                     return new TextMessage("");
-                    
+                    */
                 }   
-
+                
+                /*
                 case "国別":
                 ch = false;
                 Code = originalMessageText;
