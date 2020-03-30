@@ -171,19 +171,22 @@ public class EchoApplication {
                 ch = true;
                     if(randomValue == 0){
                         if(originalMessageText.equals("サウジアラビア")){
+                            ch = true;
                             return new TextMessage("正解");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解");
                         }
                     }
                     break;
 
                     case "基本編":
-                    ch = true;
                     if(randomValue == 0){
                         if(originalMessageText.equals("11人")){
+                            ch = true;
                             return new TextMessage("正解");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解");
                         }
                     }
@@ -193,8 +196,10 @@ public class EchoApplication {
                     ch = true;
                     if(randomValue == 0){
                         if(originalMessageText.equals("久保建英")){
+                            ch = true;
                             return new TextMessage("正解");
                         }else{
+                            ch = true;
                             return new TextMessage("不正解");
                         }
                     }
