@@ -161,7 +161,6 @@ public class EchoApplication {
         }
 
         if(ch == false){
-            ch = true;
             switch(Qur){
                 case "ランダム":
                     if(randomValue == 0){
@@ -194,6 +193,7 @@ public class EchoApplication {
                     break;
             }
         }
+        ch = true;
         return new TextMessage("ランダム、基本編、選手編のいずれか1つを発言してください");
     }
     @EventMapping
