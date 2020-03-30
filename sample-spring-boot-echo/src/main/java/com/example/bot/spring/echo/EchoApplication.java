@@ -156,7 +156,6 @@ public class EchoApplication {
                 default:
                 break;
             }
-            break;
         }
 
             if(ch == false){
@@ -193,7 +192,6 @@ public class EchoApplication {
                     default:
                     break;
             }
-            break;
         }
         ch = true;
         return new TextMessage("「ランダム」「選手別」「ルール別」から1つ選んで発言してください");
