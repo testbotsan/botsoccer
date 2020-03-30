@@ -135,16 +135,13 @@ public class EchoApplication {
                 ch = false;
                 Code = originalMessageText;
                 randomValue = random.nextInt(15);
-                switch(randomValue){
-                    case 0:
-                    return new TextMessage("2018年ロシアワールドカップの初戦の相手はどこの国？");
-
-                    default:
-                    break;
+                    if(randomValue = 0){
+                        return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
+                    }
+                default:
+                break;
             }
-            default:
-            break;
-        }
+
             if(ch == false){
                 Awn = originalMessageText;
                 switch(Code){
@@ -162,8 +159,8 @@ public class EchoApplication {
                             break;
                         }
 
-                        default:
-                        break;
+                    default:
+                    break;
                 }
             }
         return new TextMessage("「ランダム」「国別」「ルール別」からから1つ選んで発言してください");
