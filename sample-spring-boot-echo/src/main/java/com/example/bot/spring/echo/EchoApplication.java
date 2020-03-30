@@ -157,11 +157,12 @@ public class EchoApplication {
 
                                 return new TextMessage("不正解!");
                             }
+                            default:
+                            break;
                         }
-
+                        
                         default:
                         break;
-
                 }
             }
         return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
