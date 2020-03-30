@@ -157,10 +157,8 @@ public class EchoApplication {
 
                                 return new TextMessage("不正解!");
                             }
-                            default:
-                            break;
                         }
-                        
+
                         default:
                         break;
                 }
