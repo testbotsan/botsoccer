@@ -151,12 +151,12 @@ public class EchoApplication {
                             case 0:
                             ch = true;
                             if(Awn.equals("コロンビア")){
-                               
                                 return new TextMessage("正解!");
                             }else{
-
                                 return new TextMessage("不正解!");
                             }
+                            default:
+                            break;
                         }
 
                         default:
