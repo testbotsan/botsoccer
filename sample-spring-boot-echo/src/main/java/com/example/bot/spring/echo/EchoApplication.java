@@ -138,10 +138,7 @@ public class EchoApplication {
                     if(randomValue == 0){
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
-                default:
-                break;
             }
-
             if(ch == false){
                 Awn = originalMessageText;
                 switch(Code){
@@ -154,9 +151,7 @@ public class EchoApplication {
                                 return new TextMessage("不正解");
                             }
                        }
-                    default:
-                    break;
-                }
+                    }
             }
         return new TextMessage("「ランダム」「国別」「ルール別」からから1つ選んで発言してください");
     }
