@@ -129,7 +129,6 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         Random random = new Random(0);
     
-        if(ch == true){
             switch(originalMessageText){
                 case "ランダム":
                     randomValue = random.nextInt(15);
@@ -139,7 +138,7 @@ public class EchoApplication {
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
                     break;
-                  
+
                 case "基本編":
                     randomValue = random.nextInt(7);
                     Code = originalMessageText;
@@ -161,7 +160,6 @@ public class EchoApplication {
                 default:
                 break;
             }
-        }
 
             if(ch == false){
                 switch(Code){
