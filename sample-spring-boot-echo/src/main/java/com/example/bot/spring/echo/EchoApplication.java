@@ -117,6 +117,7 @@ public class EchoApplication {
     int randomValue;
     String Code = "aaa";
     String Awn = "aaa";
+    String Qur = "aaa";
     
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
@@ -139,7 +140,7 @@ public class EchoApplication {
                     }
                     break;
                   
-                case "ルール別":
+                case "ルール":
                     randomValue = random.nextInt(9);
                     Code = originalMessageText;
                     if(randomValue == 0){
@@ -147,14 +148,16 @@ public class EchoApplication {
                         return new TextMessage("サッカーは１チーム何人必要？ \n ※「～人」と答えてください");
                     }
                     break;
-                case "選手別":
-                randomValue = random.nextInt(15);
-                Code = originalMessageText;
+
+                case "選手":
+                    randomValue = random.nextInt(15);
+                    Code = originalMessageText;
                 if(randomValue == 0){
                         ch = false;
                         return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
                     }
                     break;
+
                 default:
                 break;
             }
@@ -173,7 +176,7 @@ public class EchoApplication {
                        }
                        break;
 
-                    case "ルール別":
+                    case "ルール":
                        if(randomValue == 0){
                             ch = true;
                             if(originalMessageText.equals("11人")){
@@ -198,8 +201,7 @@ public class EchoApplication {
                     break;
             }
         }
-        ch = true;
-        return new TextMessage("「ランダム」「選手別」「ルール別」から1つ選んで発言してください");
+        return new TextMessage("「ランダム」「選手」「ルール」から1つ選んで発言してください");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
