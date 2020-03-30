@@ -126,23 +126,22 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        String que = "a";
         Random random = new Random(0);
         randomValue = random.nextInt(15);
     
             switch(originalMessageText){
                 case "ランダム":
-                ch = false;
                 Code = originalMessageText;
                 randomValue = random.nextInt(15);
                     if(randomValue == 0){
+                        ch = false;
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
             }
             if(ch == false){
-                Awn = originalMessageText;
-                switch(Code){
+                switch(originalMessageText){
                     case "ランダム":
+                    ch = true;
                        if(randomValue == 0){
 
                             if(Awn.equals("サウジアラビア")){
@@ -153,7 +152,7 @@ public class EchoApplication {
                        }
                     }
             }
-        return new TextMessage("「ランダム」「国別」「ルール別」からから1つ選んで発言してください");
+        return new TextMessage("「ランダム」「国別」「ルール別」から1つ選んで発言してください");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
