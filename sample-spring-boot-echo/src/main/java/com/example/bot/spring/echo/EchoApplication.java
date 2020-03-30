@@ -163,6 +163,7 @@ public class EchoApplication {
         if(ch == false){
             switch(Qur){
                 case "ランダム":
+                ch = true;
                     if(randomValue == 0){
                         if(originalMessageText.equals("サウジアラビア")){
                             return new TextMessage("正解");
@@ -173,16 +174,19 @@ public class EchoApplication {
                     break;
 
                     case "基本編":
+                    ch = true;
                     if(randomValue == 0){
                         if(originalMessageText.equals("11人")){
                             return new TextMessage("正解");
                         }else{
                             return new TextMessage("不正解");
                         }
+
                     }
                     break;
 
                     case "選手編":
+                    ch = true;
                     if(randomValue == 0){
                         if(originalMessageText.equals("久保建英")){
                             return new TextMessage("正解");
@@ -193,7 +197,6 @@ public class EchoApplication {
                     break;
             }
         }
-        ch = true;
         return new TextMessage("ランダム、基本編、選手編のいずれか1つを発言してください");
     }
     @EventMapping
