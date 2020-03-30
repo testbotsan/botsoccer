@@ -131,6 +131,7 @@ public class EchoApplication {
         if(ch == true){
             switch(originalMessageText){
                 case "ランダム":
+                Qur = "ランダム";
                     randomValue = random.nextInt(10);
                     if(randomValue == 0){
                         return new TextMessage("2018年ロシアワールドカップ初戦はロシア対どこ？");
@@ -138,6 +139,7 @@ public class EchoApplication {
                 break;
 
                 case "基本編":
+                Qur = "基本編";
                     randomValue = random.nextInt(10);
                     if(randomValue == 0){
                         return new TextMessage("サッカーは1チーム何人でおこなう？");
@@ -145,14 +147,48 @@ public class EchoApplication {
                 break;
 
                 case "選手編":
+                Qur = "選手編";
                     randomValue = random.nextInt(10);
                         if(randomValue == 0){
-                            return new TextMessage("2018年ロシアワールドカップ初戦はロシア対どこ？");
+                            return new TextMessage("レアルマドリードへ移籍した日本人選手は？");
                         }
-                    break;
+                break;
 
                 default:
                 break; 
+            }
+        }else{
+
+            switch(Qur){
+                case "ランダム":
+                    if(randomValue == 0){
+                        if(originalMessageText.equals("サウジアラビア")){
+                            return new TextMessage("正解");
+                        }else{
+                            return new TextMessage("不正解");
+                        }
+                    }
+                    break;
+
+                    case "基本編":
+                    if(randomValue == 0){
+                        if(originalMessageText.equals("11人")){
+                            return new TextMessage("正解");
+                        }else{
+                            return new TextMessage("不正解");
+                        }
+                    }
+                    break;
+
+                    case "選手編":
+                    if(randomValue == 0){
+                        if(originalMessageText.equals("久保建英")){
+                            return new TextMessage("正解");
+                        }else{
+                            return new TextMessage("不正解");
+                        }
+                    }
+                    break;
             }
         }
         return new TextMessage("ランダム、基本編、選手編のいずれか1つを発言してください");
