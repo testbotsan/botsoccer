@@ -137,6 +137,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
+                    break;
                   
                 case "ルール別":
                     randomValue = random.nextInt(9);
@@ -145,7 +146,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("サッカーは１チーム何人必要？ \n ※「～人」と答えてください");
                     }
-
+                    break;
                 case "選手別":
                 randomValue = random.nextInt(15);
                 Code = originalMessageText;
@@ -153,6 +154,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
                     }
+                    break;
                 default:
                 break;
             }
@@ -169,6 +171,7 @@ public class EchoApplication {
                                 return new TextMessage("不正解");
                             }
                        }
+                       break;
 
                     case "ルール別":
                        if(randomValue == 0){
@@ -179,7 +182,7 @@ public class EchoApplication {
                                 return new TextMessage("不正解! \n 正解は「11人」です");
                             }
                         }
-
+                        break;
                     case "選手":
                     if(randomValue == 0){
                         ch = true;
@@ -189,6 +192,8 @@ public class EchoApplication {
                                 return new TextMessage("不正解!");
                             }
                         }
+                        break;
+
                     default:
                     break;
             }
