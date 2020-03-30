@@ -561,7 +561,7 @@ public class EchoApplication {
                             return new TextMessage("正解! \n 大半は前半1～3分,後半3～5分が多いです");
                         }else{
                             ch = true;
-                            return new TextMessage("不正解! \n 正解は「セットプレー」です");
+                            return new TextMessage("不正解! \n 正解は「アディショナルタイム」です");
                         }   
                     } 
                    
