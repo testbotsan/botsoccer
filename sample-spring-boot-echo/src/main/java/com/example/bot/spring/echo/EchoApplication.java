@@ -133,10 +133,14 @@ public class EchoApplication {
                 case "ランダム":
                 ch = false;
                 Qur = "ランダム";
-                    randomValue = random.nextInt(10);
+                    randomValue = random.nextInt(1);
                     if(randomValue == 0){
                     
                         return new TextMessage("2018年ロシアワールドカップ初戦はロシア対どこ？");
+                    }
+                    if(randomValue == 1){
+                    
+                        return new TextMessage("現在の日本代表の世界ランキングは何位でしょう？ \n 「～位」と答えてください");
                     }
                 break;
 
@@ -180,10 +184,13 @@ public class EchoApplication {
                 case "選手編":
                 ch = false;
                 Qur = "選手編";
-                    randomValue = random.nextInt(10);
+                    randomValue = random.nextInt(1);
                         if(randomValue == 0){
                           
                             return new TextMessage("レアルマドリードへ移籍した日本人選手は？");
+                        }
+                        if(randomValue == 1){
+                            return new TextMessage("鹿児島出身のJリーガであり「コロコロPK」で有名な選手は？");
                         }
                 break;
 
@@ -301,6 +308,15 @@ public class EchoApplication {
                     ch = true;
                     if(randomValue == 0){
                         if(originalMessageText.equals("久保建英")){
+                            ch = true;
+                            return new TextMessage("正解");
+                        }else{
+                            ch = true;
+                            return new TextMessage("不正解");
+                        }
+                    }
+                    if(randomValue == 1){
+                        if(originalMessageText.equals("遠藤保仁")){
                             ch = true;
                             return new TextMessage("正解");
                         }else{
