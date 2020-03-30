@@ -140,8 +140,8 @@ public class EchoApplication {
                     }
                     break;
                   
-                case "ルール":
-                    randomValue = random.nextInt(9);
+                case "基本編":
+                    randomValue = random.nextInt(7);
                     Code = originalMessageText;
                     if(randomValue == 0){
                         ch = false;
@@ -149,8 +149,8 @@ public class EchoApplication {
                     }
                     break;
 
-                case "選手":
-                    randomValue = random.nextInt(15);
+                case "選手編":
+                    randomValue = random.nextInt(7);
                     Code = originalMessageText;
                 if(randomValue == 0){
                         ch = false;
@@ -176,7 +176,7 @@ public class EchoApplication {
                        }
                        break;
 
-                    case "ルール":
+                    case "基本編":
                        if(randomValue == 0){
                             ch = true;
                             if(originalMessageText.equals("11人")){
@@ -186,7 +186,7 @@ public class EchoApplication {
                             }
                         }
                         break;
-                    case "選手":
+                    case "選手編":
                     if(randomValue == 0){
                         ch = true;
                             if(originalMessageText.equals("久保建英")){
