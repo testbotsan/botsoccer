@@ -129,6 +129,7 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         Random random = new Random(0);
         if(ch == true){
+            ch = false;
             switch(originalMessageText){
                 case "ランダム":
                 Qur = "ランダム";
@@ -157,8 +158,10 @@ public class EchoApplication {
                 default:
                 break; 
             }
-        }else{
+        }
 
+        if(ch == false){
+            ch = true;
             switch(Qur){
                 case "ランダム":
                     if(randomValue == 0){
