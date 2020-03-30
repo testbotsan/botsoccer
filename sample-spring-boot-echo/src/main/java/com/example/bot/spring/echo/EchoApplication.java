@@ -135,7 +135,7 @@ public class EchoApplication {
                 ch = false;
                 Code = originalMessageText;
                 randomValue = random.nextInt(15);
-                    if(randomValue = 0){
+                    if(randomValue == 0){
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
                 default:
