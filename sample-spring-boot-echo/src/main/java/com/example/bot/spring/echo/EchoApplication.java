@@ -127,13 +127,13 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        Random random = new Random(1);
+        Random random = new Random();
         if(ch == true){
             switch(originalMessageText){
                 case "ランダム":
                 ch = false;
                 Qur = "ランダム";
-                    randomValue = random.nextInt(1);
+                    randomValue = random.nextInt(2);
                     if(randomValue == 0){
                     
                         return new TextMessage("2018年ロシアワールドカップ初戦はロシア対どこ？");
@@ -184,13 +184,13 @@ public class EchoApplication {
                 case "選手編":
                 ch = false;
                 Qur = "選手編";
-                    randomValue = random.nextInt(1);
+                    randomValue = random.nextInt(2);
                         if(randomValue == 0){
                           
                             return new TextMessage("レアルマドリードへ移籍した日本人選手は？" + randomValue);
                         }
                         if(randomValue == 1){
-                            return new TextMessage("鹿児島出身のJリーガであり「コロコロPK」で有名な選手は？");
+                            return new TextMessage("鹿児島出身のJリーガであり「コロコロPK」で有名な選手は？" + randomValue);
                         }
                 break;
 
