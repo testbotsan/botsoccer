@@ -235,7 +235,7 @@ public class EchoApplication {
                             return new TextMessage("不正解! \n 正解は「イエローカードです」");
                         }
                     }
-                    break;
+                    
                     if(randomValue == 2){
                         ch = true;
                         String text = originalMessageText.toUpperCase();
