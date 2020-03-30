@@ -127,23 +127,36 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         Random random = new Random(0);
-        randomValue = random.nextInt(15);
+    
     
             switch(originalMessageText){
                 case "ランダム":
-                Code = originalMessageText;
-                randomValue = random.nextInt(15);
+                    randomValue = random.nextInt(15);
                     if(randomValue == 0){
                         ch = false;
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
+
+                case "ルール":
+                    randomValue = random.nextInt(15);
+                    if(randomValue == 0){
+                        ch = false;
+                        return new TextMessage("サッカーは１チーム何人必要？");
+                    }
+
+                case "選手":
+                randomValue = random.nextInt(15);
+                if(randomValue == 0){
+                        ch = false;
+                        return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
+                }
+
             }
             if(ch == false){
                 switch(originalMessageText){
                     case "ランダム":
-                    ch = true;
                        if(randomValue == 0){
-
+                            ch = true;
                             if(Awn.equals("サウジアラビア")){
                                 return new TextMessage("正解");
                             }else{
