@@ -128,7 +128,7 @@ public class EchoApplication {
         final String originalMessageText = event.getMessage().getText();
         Random random = new Random(0);
     
-    
+        if(ch == true){
             switch(originalMessageText){
                 case "ランダム":
                     randomValue = random.nextInt(15);
@@ -190,6 +190,8 @@ public class EchoApplication {
                     }
                     break;
             }
+        }
+
             if(ch == false){
                 switch(Code){
                     case "ランダム":
@@ -210,7 +212,7 @@ public class EchoApplication {
                             }else{
                                 return new TextMessage("不正解! \n 正解は「11人」です");
                             }
-                        }
+                        }/*
                         if(randomValue == 1){
                             ch = true;
                             if(originalMessageText.equals("イエローカード")){
@@ -267,8 +269,9 @@ public class EchoApplication {
                         }else{
                                 return new TextMessage("不正解! \n 正解は「フリーキック」です");
                         }   
-                    } 
+                    } */
                     break;
+
                     case "選手":
                     if(randomValue == 0){
                         ch = true;
