@@ -128,77 +128,34 @@ public class EchoApplication {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
         Random random = new Random(0);
-    
-         switch(originalMessageText){
+        if(ch == true){
+            switch(originalMessageText){
                 case "ランダム":
-                    randomValue = random.nextInt(15);
-                    Code = originalMessageText;
+                    randomValue = random.nextInt(10);
                     if(randomValue == 0){
-                        ch = false;
-                        Qur = "2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？";
+                        return new TextMessage("2018年ロシアワールドカップ初戦はロシア対どこ？");
                     }
-                    break;
+                break;
+
                 case "基本編":
-                    randomValue = random.nextInt(7);
-                    Code = originalMessageText;
+                    randomValue = random.nextInt(10);
                     if(randomValue == 0){
-                        ch = false;
-                        Qur = "サッカーは１チーム何人必要？ \n ※「～人」と答えてください";
+                        return new TextMessage("サッカーは1チーム何人でおこなう？");
                     }
-                    break;
+                break;
+
                 case "選手編":
-                    randomValue = random.nextInt(7);
-                    Code = originalMessageText;
-                if(randomValue == 0){
-                        ch = false;
-                        Qur = "18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？";
-                    }
-                    break ;
+                    randomValue = random.nextInt(10);
+                        if(randomValue == 0){
+                            return new TextMessage("2018年ロシアワールドカップ初戦はロシア対どこ？");
+                        }
+                    break;
 
                 default:
-                Qur = "「ランダム」「選手編」「基本編」から1つ選んで発言してください";
-                break;
-            }
-
-            if(ch == false){
-                switch(Code){
-                    case "ランダム":
-                       if(randomValue == 0){
-                            ch = true;
-                            if(originalMessageText.equals("サウジアラビア")){
-                                return new TextMessage("正解");
-                            }else{
-                                return new TextMessage("不正解");
-                            }
-                       }
-                       break;
-
-                    case "基本編":
-                       if(randomValue == 0){
-                            ch = true;
-                            if(originalMessageText.equals("11人")){
-                                return new TextMessage("正解! \n サッカーは1チーム11人で行います");
-                            }else{
-                                return new TextMessage("不正解! \n 正解は「11人」です");
-                            }
-                        }
-                        break;
-                    case "選手編":
-                    if(randomValue == 0){
-                        ch = true;
-                            if(originalMessageText.equals("久保建英")){
-                                return new TextMessage("正解!");
-                            }else{
-                                return new TextMessage("不正解!");
-                            }
-                        }
-                        break;
-
-                    default:
-                    break;
+                break; 
             }
         }
-        return new TextMessage(Qur);
+        return new TextMessage("ランダム、基本編、選手編のいずれか1つを発言してください");
     }
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
