@@ -185,15 +185,16 @@ public class EchoApplication {
                     case "選手":
                     if(randomValue == 0){
                         ch = true;
-                            if(originalMessageText.equals("11人")){
-                                return new TextMessage("正解! \n サッカーは1チーム11人で行います");
+                            if(originalMessageText.equals("久保建英")){
+                                return new TextMessage("正解!");
                             }else{
-                                return new TextMessage("不正解! \n 正解は「11人」です");
+                                return new TextMessage("不正解!");
                             }
                         }
                         break;
             }
         }
+        ch = true;
         return new TextMessage("「ランダム」「選手別」「ルール別」から1つ選んで発言してください");
     }
     @EventMapping
