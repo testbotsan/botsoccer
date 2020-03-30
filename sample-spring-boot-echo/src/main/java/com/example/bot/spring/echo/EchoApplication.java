@@ -141,124 +141,6 @@ public class EchoApplication {
 
                     default:
                     break;
-                    /*
-                    case 1:
-                    return new TextMessage("");
-
-                    case 2:
-                    return new TextMessage("");
-
-                    case 3:
-                    return new TextMessage("");
-
-                    case 4:
-                    return new TextMessage("");
-
-                    case 5:
-                    return new TextMessage("");
-                    
-                    case 6:
-                    return new TextMessage("");
-                    
-                    case 7:
-                    return new TextMessage("");
-                    
-                    case 8:
-                    return new TextMessage("");
-                    
-                    case 9:
-                    return new TextMessage("");
-                    
-                    case 10:
-                    return new TextMessage("");
-                    
-                    case 11:
-                    return new TextMessage("");
-                    
-                    case 12:
-                    return new TextMessage("");
-                    
-                    case 13:
-                    return new TextMessage("");
-                    
-                    case 14:
-                    return new TextMessage("");
-                    */
-                }   
-                
-                /*
-                case "国別":
-                ch = false;
-                Code = originalMessageText;
-                randomValue = random.nextInt(9);
-                switch(randomValue){
-                    case 0:
-                    return new TextMessage("");
-
-                    case 1:
-                    return new TextMessage("");
-
-                    case 2:
-                    return new TextMessage("");
-
-                    case 3:
-                    return new TextMessage("");
-
-                    case 4:
-                    return new TextMessage("");
-
-                    case 5:
-                    return new TextMessage("");
-                    
-                    case 6:
-                    return new TextMessage("");
-                    
-                    case 7:
-                    return new TextMessage("");
-                    
-                    case 8:
-                    return new TextMessage("");
-                    
-                    case 9:
-                    return new TextMessage("");
-                }
-
-                case "ルール別":
-                ch = false;
-                Code = originalMessageText;
-                randomValue = random.nextInt(9);
-                switch(randomValue){
-                    case 0:
-                    return new TextMessage("");
-
-                    case 1:
-                    return new TextMessage("");
-
-                    case 2:
-                    return new TextMessage("");
-
-                    case 3:
-                    return new TextMessage("");
-
-                    case 4:
-                    return new TextMessage("");
-
-                    case 5:
-                    return new TextMessage("");
-                    
-                    case 6:
-                    return new TextMessage("");
-                    
-                    case 7:
-                    return new TextMessage("");
-                    
-                    case 8:
-                    return new TextMessage("");
-                    
-                    case 9:
-                    return new TextMessage("");
-                }*/
-                
             }
             if(ch == false){
                 Awn = originalMessageText;
@@ -275,12 +157,10 @@ public class EchoApplication {
                                 return new TextMessage("不正解!");
                             }
                         }
-                    /*
-                    case "国別":
-                    break;
 
-                    case "ルール別":
-                    break;*/
+                        default:
+                        break;
+
             }
         }
         return new TextMessage("「ランダム」、「国別」、「ルール別」からから1つ選んで発言してください");
