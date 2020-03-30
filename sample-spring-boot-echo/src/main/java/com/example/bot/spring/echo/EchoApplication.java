@@ -136,6 +136,7 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("2018年に行われたロシアワールドにて行われた最初の試合はロシア対どこでしょう？");
                     }
+                    break;
 
                 case "ルール":
                     randomValue = random.nextInt(15);
@@ -143,13 +144,15 @@ public class EchoApplication {
                         ch = false;
                         return new TextMessage("サッカーは１チーム何人必要？");
                     }
+                    break;
 
                 case "選手":
                 randomValue = random.nextInt(15);
                 if(randomValue == 0){
                         ch = false;
                         return new TextMessage("18歳の若さでスペインの名門レアル・マドリーへ移籍した選手は？");
-                }
+                    }   
+                    break;
 
             }
             if(ch == false){
