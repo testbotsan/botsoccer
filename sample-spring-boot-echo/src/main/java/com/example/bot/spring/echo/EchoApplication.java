@@ -644,6 +644,8 @@ public class EchoApplication {
 
         }catch(SQLException e){
             return new TextMessage("DB接続でエラーが出ました : " + e );
+        }catch(Exception e){
+            return new TextMessage("エラー : " + e);
         }
             Que = question;
             return new TextMessage(Que); 
