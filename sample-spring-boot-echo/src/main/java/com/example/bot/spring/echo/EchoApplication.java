@@ -601,6 +601,9 @@ public class EchoApplication {
             }
         }
         return new TextMessage("ランダム、基本編、選手編のいずれか1つを発言してください");*/
+
+
+
         Connection conn = null;
         Statement stmt = null;
         ResultSet rset = null;
@@ -612,9 +615,14 @@ public class EchoApplication {
         String in_awnser = null;
         String Que = null;
 
+        String url = "jdbc:postgresql://localhost:5432/botsoccer";
+        String user = "postgres";
+        String password = "password";
+
         
         try{
-
+            
+            conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
                 String sql = "SELECT * from ramdom where id = " + randomValue + ";" ;
                 rset = stmt.executeQuery(sql);
@@ -635,9 +643,7 @@ public class EchoApplication {
                 conn.close();
 
         }catch(SQLException e){
-
-            return new TextMessage("SQL接続でエラーが出ました");
-
+            return new TextMessage("DB接続でエラーが出ました : " + e );
         }
             Que = question;
             return new TextMessage(Que); 
