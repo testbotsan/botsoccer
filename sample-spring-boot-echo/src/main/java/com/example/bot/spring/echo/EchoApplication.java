@@ -612,13 +612,9 @@ public class EchoApplication {
         String in_awnser = null;
         String Que = null;
 
-        String url = "jdbc:postgresql://localhost:5432/botsoccer";
-        String user = "postgres";
-        String password = "password";
-
+        
         try{
 
-            conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
                 String sql = "SELECT * from ramdom where id = " + randomValue + ";" ;
                 rset = stmt.executeQuery(sql);
