@@ -65,13 +65,6 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootApplication
 @LineMessageHandler
 public class EchoApplication {
-
-    @Autowired
-    private LineMessagingClient lineMessagingClient;
-
-    @Autowired
-    private LineBlobClient lineBlobClient;
-
     private final Logger log = LoggerFactory.getLogger(EchoApplication.class);
     
     Boolean ch = true;
