@@ -632,8 +632,10 @@ public class EchoApplication {
                      in_awnser = rset.getString(5); 
 
                 }
-
-               
+                
+                rset.close();
+                stmt.close();
+                conn.close();
 
         }catch(SQLException e){
 
@@ -641,9 +643,7 @@ public class EchoApplication {
 
         }finally{
 
-            rset.close();
-            stmt.close();
-            conn.close();
+            
 
         }
             Que = question;
