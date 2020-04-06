@@ -604,6 +604,7 @@ public class EchoApplication {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rset = null;
+
         String id = null;
         String question = null;
         String awnser = null;
@@ -640,8 +641,6 @@ public class EchoApplication {
         }catch(SQLException e){
 
             return new TextMessage("SQL接続でエラーが出ました");
-
-        }finally{
 
         }
             Que = question;
