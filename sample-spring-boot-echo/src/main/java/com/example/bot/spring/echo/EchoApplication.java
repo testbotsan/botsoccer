@@ -44,62 +44,24 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.linecorp.bot.client.LineBlobClient;
-import com.linecorp.bot.client.LineMessagingClient;
-import com.linecorp.bot.client.MessageContentResponse;
-import com.linecorp.bot.model.ReplyMessage;
-import com.linecorp.bot.model.action.DatetimePickerAction;
-import com.linecorp.bot.model.action.MessageAction;
-import com.linecorp.bot.model.action.PostbackAction;
-import com.linecorp.bot.model.action.URIAction;
-import com.linecorp.bot.model.event.BeaconEvent;
 import com.linecorp.bot.model.event.Event;
-import com.linecorp.bot.model.event.FollowEvent;
-import com.linecorp.bot.model.event.JoinEvent;
-import com.linecorp.bot.model.event.MemberJoinedEvent;
-import com.linecorp.bot.model.event.MemberLeftEvent;
 import com.linecorp.bot.model.event.MessageEvent;
-import com.linecorp.bot.model.event.PostbackEvent;
-import com.linecorp.bot.model.event.UnfollowEvent;
-import com.linecorp.bot.model.event.message.AudioMessageContent;
-import com.linecorp.bot.model.event.message.ContentProvider;
-import com.linecorp.bot.model.event.message.FileMessageContent;
-import com.linecorp.bot.model.event.message.ImageMessageContent;
-import com.linecorp.bot.model.event.message.LocationMessageContent;
-import com.linecorp.bot.model.event.message.StickerMessageContent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
-import com.linecorp.bot.model.event.message.VideoMessageContent;
-import com.linecorp.bot.model.event.source.GroupSource;
-import com.linecorp.bot.model.event.source.RoomSource;
-import com.linecorp.bot.model.event.source.Source;
-import com.linecorp.bot.model.message.AudioMessage;
-import com.linecorp.bot.model.message.ImageMessage;
-import com.linecorp.bot.model.message.ImagemapMessage;
-import com.linecorp.bot.model.message.LocationMessage;
 import com.linecorp.bot.model.message.Message;
-import com.linecorp.bot.model.message.StickerMessage;
-import com.linecorp.bot.model.message.TemplateMessage;
 import com.linecorp.bot.model.message.TextMessage;
-import com.linecorp.bot.model.message.VideoMessage;
-import com.linecorp.bot.model.message.imagemap.ImagemapArea;
-import com.linecorp.bot.model.message.imagemap.ImagemapBaseSize;
-import com.linecorp.bot.model.message.imagemap.ImagemapExternalLink;
-import com.linecorp.bot.model.message.imagemap.ImagemapVideo;
-import com.linecorp.bot.model.message.imagemap.MessageImagemapAction;
-import com.linecorp.bot.model.message.imagemap.URIImagemapAction;
-import com.linecorp.bot.model.message.template.ButtonsTemplate;
-import com.linecorp.bot.model.message.template.CarouselColumn;
-import com.linecorp.bot.model.message.template.CarouselTemplate;
-import com.linecorp.bot.model.message.template.ConfirmTemplate;
-import com.linecorp.bot.model.message.template.ImageCarouselColumn;
-import com.linecorp.bot.model.message.template.ImageCarouselTemplate;
-import com.linecorp.bot.model.response.BotApiResponse;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import lombok.NonNull;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
+import sun.security.util.Password;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -127,7 +89,7 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        Random random = new Random();
+        /*Random random = new Random();
         if(ch == true){
             switch(originalMessageText){
                 case "ランダム":
@@ -645,10 +607,78 @@ public class EchoApplication {
                     break;
             }
         }
-        return new TextMessage("ランダム、基本編、選手編のいずれか1つを発言してください");
+        return new TextMessage("ランダム、基本編、選手編のいずれか1つを発言してください");*/
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rset = null;
+        String col = null;
+
+        String url = "jdbc:postgresql://localhost:5432/botso";
+        String user = "postgres";
+        String password = "password";
+
+        try{
+
+            conn = DriverManager.getConnection(url, user, password);
+            stmt = conn.createStatement();
+                String sql = "SELECT * from ramdom";
+                rset = stmt.executeQuery(sql);
+    
+                //SELECT結果の受け取り
+                while(rset.next()){
+                     col = rset.getString(1);
+                }
+
+                rset.close();
+                stmt.close();
+                conn.close();
+
+        }catch(SQLException e){
+
+            return new TextMessage(e);
+
+        }
+        return new TextMessage(col);
     }
+
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
+    }
+
+    public void DBsetUp(){
+
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rset = null;
+        String col = null;
+
+        String url = "jdbc:postgresql://localhost:5432/botso";
+        String user = "postgres";
+        String password = "password";
+
+        try{
+
+            conn = DriverManager.getConnection(url, user, password);
+            stmt = conn.createStatement();
+                String sql = "SELECT * from ramdom";
+                rset = stmt.executeQuery(sql);
+    
+                //SELECT結果の受け取り
+                while(rset.next()){
+                     col = rset.getString(1);
+                }
+
+                rset.close();
+                stmt.close();
+                conn.close();
+
+                return new TextMessage(col);
+
+        }catch(SQLException e){
+
+            return new TextMessage(e);
+
+        }
     }
 }
