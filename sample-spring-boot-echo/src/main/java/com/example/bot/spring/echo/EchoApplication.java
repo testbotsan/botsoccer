@@ -621,7 +621,7 @@ public class EchoApplication {
 
         
         try{
-            
+            Class.forName("org.postgresql.Driver");
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
                 String sql = "SELECT * from ramdom where id = " + randomValue + ";" ;
