@@ -21,11 +21,14 @@ line.bot:
   channel-secret: 'c07faa3e9d06d150c0c206e4921e7d6b'
   handler.path: /callback
   
-  spring.datasource.driver-class-name=org.postgresql.Driver
-  spring.datasource.url=jdbc:postgresql://localhost:5432/botsoccer
-  spring.datasource.username=postgres
-  spring.datasource.password=password
+  
 
+  spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/botsoccer
+    username: postgres
+    password: password
 # To remove Client wire logs. Please comment out following lines.
 # See: https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
 #
