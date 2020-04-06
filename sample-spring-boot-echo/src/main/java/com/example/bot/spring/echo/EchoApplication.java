@@ -605,7 +605,7 @@ public class EchoApplication {
         ResultSet rset = null;
         String col = null;
 
-        String url = "jdbc:postgresql://localhost:5432/botso";
+        String url = "jdbc:postgresql://localhost:5432/botsoccer";
         String user = "postgres";
         String password = "password";
 
@@ -627,18 +627,20 @@ public class EchoApplication {
 
         }catch(SQLException e){
 
-            return new TextMessage(e);
+            String error = e;
+            return new TextMessage(error);
 
         }
-        return new TextMessage(col);
+            String answer = col;
+            return new TextMessage("DBの中身は : " + answer); 
+
     }
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
         System.out.println("event: " + event);
     }
-
-    public void DBsetUp(){
+    /*public void DBsetUp(){
 
         Connection conn = null;
         Statement stmt = null;
@@ -672,5 +674,5 @@ public class EchoApplication {
             return new TextMessage(e);
 
         }
-    }
+    }*/
 }
