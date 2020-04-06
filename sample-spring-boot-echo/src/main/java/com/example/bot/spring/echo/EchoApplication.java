@@ -627,9 +627,7 @@ public class EchoApplication {
 
         }catch(SQLException e){
 
-            String error = e;
-            return new TextMessage(error);
-
+            return new TextMessage("SQL接続でエラーが出ました");
         }
             String answer = col;
             return new TextMessage("DBの中身は : " + answer); 
