@@ -81,8 +81,9 @@ public class EchoApplication {
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
         final String originalMessageText = event.getMessage().getText();
-        /*Random random = new Random();
-        if(ch == true){
+        Random random = new Random();
+        randomValue = random.nextInt(3);
+        /*if(ch == true){
             switch(originalMessageText){
                 case "ランダム":
                 ch = false;
@@ -603,7 +604,12 @@ public class EchoApplication {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rset = null;
-        String col = null;
+        String id = null;
+        String question = null;
+        String awnser = null;
+        String co_awnser = null;
+        String in_awnser = null;
+        String Que = null;
 
         String url = "jdbc:postgresql://localhost:5432/botsoccer";
         String user = "postgres";
@@ -613,24 +619,35 @@ public class EchoApplication {
 
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
-                String sql = "SELECT * from ramdom";
+                String sql = "SELECT * from ramdom where id = " + randomValue + ";" ;
                 rset = stmt.executeQuery(sql);
     
                 //SELECT結果の受け取り
                 while(rset.next()){
-                     col = rset.getString(1);
+
+                     id = rset.getString(1);
+                     question = rset.getString(2);
+                     awnser = rset.getString(3);
+                     co_awnser = rset.getString(4);
+                     in_awnser = rset.getString(5); 
+
                 }
 
-                rset.close();
-                stmt.close();
-                conn.close();
+               
 
         }catch(SQLException e){
 
             return new TextMessage("SQL接続でエラーが出ました");
+
+        }finally{
+
+            rset.close();
+            stmt.close();
+            conn.close();
+
         }
-            String answer = col;
-            return new TextMessage("DBの中身は : " + answer); 
+            Que = question;
+            return new TextMessage(Que); 
 
     }
 
