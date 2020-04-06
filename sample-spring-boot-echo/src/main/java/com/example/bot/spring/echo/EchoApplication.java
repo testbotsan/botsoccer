@@ -643,12 +643,9 @@ public class EchoApplication {
 
         }finally{
 
-            
-
         }
             Que = question;
             return new TextMessage(Que); 
-
     }
 
     @EventMapping
