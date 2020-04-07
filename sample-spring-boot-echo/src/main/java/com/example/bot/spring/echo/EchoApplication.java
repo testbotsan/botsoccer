@@ -615,7 +615,7 @@ public class EchoApplication {
         String in_awnser = null;
         String Que = null;
 
-        String url = "jdbc:postgresql://localhost:5432/botsoccer";
+        String url = "postgres://cttnkytwohzikx:fbb081a66299d48c68f15025142d092965acc95648214765addea37b6735e9a5@ec2-18-210-51-239.compute-1.amazonaws.com:5432/dcvhmns98lj46e";
         String user = "postgres";
         String password = "password";
 
