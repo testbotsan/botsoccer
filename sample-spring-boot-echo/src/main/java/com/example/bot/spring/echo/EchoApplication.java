@@ -615,16 +615,22 @@ public class EchoApplication {
         String in_awnser = null;
         String Que = null;
 
-        String url = "postgres://cttnkytwohzikx:fbb081a66299d48c68f15025142d092965acc95648214765addea37b6735e9a5@ec2-18-210-51-239.compute-1.amazonaws.com:5432/dcvhmns98lj46e";
-        String user = "postgres";
-        String password = "password";
+        String url = "jdbc:postgresql:////cttnkytwohzikx:fbb081a66299d48c68f15025142d092965acc95648214765addea37b6735e9a5@ec2-18-210-51-239.compute-1.amazonaws.com:5432//dcvhmns98lj46e";
+        String user = "cttnkytwohzikx";
+        String password = "fbb081a66299d48c68f15025142d092965acc95648214765addea37b6735e9a5";
 
         
         try{
-            Class.forName("org.postgresql.Driver");
+            
+
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
+                String sql3 = "CREATE TABLE ramdom (id integer , question varchar(100));" ;
+                String sql4 = "INSERT INTO ramdom values(1,'テスト');";
                 String sql = "SELECT * from ramdom where id = " + randomValue + ";" ;
+
+                rset = stmt.executeQuery(sql3);
+	            rset = stmt.executeQuery(sql4);
                 rset = stmt.executeQuery(sql);
     
                 //SELECT結果の受け取り
