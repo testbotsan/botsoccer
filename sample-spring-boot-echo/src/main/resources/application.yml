@@ -20,6 +20,12 @@ line.bot:
   channel-token: 'egqZ0aSriTkpgigSiSNUP9cGuEhYhJO2+aeyZKj6P1bvwrjVQ999+p1Q2XxOu0XXzxbubVkYRApgWVDsWPzvZZvFjG+q2WyEhYGl07fvUXzAwTF9o+xtaI+4D8UmABYcqjtAZBUjwRgT7EdP9aoSyAdB04t89/1O/w1cDnyilFU='
   channel-secret: 'c07faa3e9d06d150c0c206e4921e7d6b'
   handler.path: /callback
+
+spring:
+  datasource:
+    url: jdbc:postgresql://cttnkytwohzikx:fbb081a66299d48c68f15025142d092965acc95648214765addea37b6735e9a5@ec2-18-210-51-239.compute-1.amazonaws.com:5432/dcvhmns98lj46e
+    username:  cttnkytwohzikx
+    password:  fbb081a66299d48c68f15025142d092965acc95648214765addea37b6735e9a5
   
 # To remove Client wire logs. Please comment out following lines.
 # See: https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
