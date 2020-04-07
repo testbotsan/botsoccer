@@ -630,7 +630,6 @@ public class EchoApplication {
                 //SELECT結果の受け取り
                 while(rset.next()){
 
-                     id = rset.getString(1);
                      question = rset.getString(2);
                      awnser = rset.getString(3);
                      co_awnser = rset.getString(4);
